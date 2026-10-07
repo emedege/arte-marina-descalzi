@@ -240,5 +240,5 @@ p { margin: 0 0 1em; }
 
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
-.tipea .c { opacity: 0; transition: opacity 0.35s ease; transition-delay: calc(var(--i) * 55ms); }
+.tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
 .tipea.go .c { opacity: 1; }

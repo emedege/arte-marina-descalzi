@@ -76,24 +76,24 @@ const tiles = [
   <script is:inline>
     (function () {
       // Frases letra a letra
-      function tipea(el, delay) {
+      function tipea(el, delay, slowFrom) {
         var txt = el.textContent.trim();
         el.setAttribute('aria-label', txt);
         el.textContent = '';
-        var i = 0;
+        var i = 0; var d = 0; var pos = 0;
         txt.split(' ').forEach(function (word, k) {
           var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
           word.split('').forEach(function (ch) {
-            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; c.style.setProperty('--i', i++); w.appendChild(c);
+            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; var slow = slowFrom != null && pos >= slowFrom; if (slow && pos === slowFrom) d += 700; d += slow ? 170 : 55; c.style.setProperty('--d', d + 'ms'); c.style.setProperty('--t', slow ? '0.9s' : '0.35s'); pos++; i++; w.appendChild(c);
           });
           el.appendChild(w);
-          if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); i++; }
+          if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); pos++; d += (slowFrom != null && pos > slowFrom) ? 170 : 55; }
         });
         el.classList.add('tipea');
         return function () { setTimeout(function () { el.classList.add('go'); }, delay || 0); };
       }
       var tag = document.querySelector('.intro h1');
-      if (tag) { var startTag = tipea(tag, 2200); startTag(); }
+      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 2200, cut > 0 ? cut : null); startTag(); }
       var q = document.querySelector('.quote p');
       if (q) {
         var startQ = tipea(q, 0);
