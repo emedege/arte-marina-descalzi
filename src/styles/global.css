@@ -230,6 +230,12 @@ p { margin: 0 0 1em; }
 /* Velo que se levanta al bajar la página (portada) */
 .triptych.penta .reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(248, 244, 239, 0.92); opacity: var(--veil, 0); backdrop-filter: blur(calc(var(--veil, 0) * 8px)); -webkit-backdrop-filter: blur(calc(var(--veil, 0) * 8px)); }
 
+/* El logo se pinta trazo a trazo */
+@keyframes pincel { from { mask-position: 0 100%; -webkit-mask-position: 0 100%; } to { mask-position: 0 0; -webkit-mask-position: 0 0; } }
+.logo-draw { display: inline-block; position: relative; aspect-ratio: 322 / 400; }
+.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 60%); mask-image: linear-gradient(to bottom, #000 40%, transparent 60%); -webkit-mask-size: 100% 250%; mask-size: 100% 250%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; animation: pincel 2.6s ease-in-out both; }
+.logo-draw .l-rosa { animation-delay: 1.1s; animation-duration: 2.8s; }
+
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
 .tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
