@@ -12,6 +12,7 @@ export const ui = {
     nav: { home: 'Inicio', shop: 'Tienda', portfolio: 'Portfolio', gallery: 'Galería', about: 'Quién soy', contact: 'Contacto' },
     home: {
       tagline: 'El color no ha desaparecido. Se esconde.',
+      quote: 'bajo el velo, el color permanece.',
       sub: 'Pintura, fotografía, collage y diseño de Marina Descalzi',
       cta: 'Ver la tienda',
       shopT: 'Tienda', shopD: 'Piezas únicas, con certificado de autenticidad.',
@@ -48,6 +49,7 @@ export const ui = {
     nav: { home: 'Home', shop: 'Shop', portfolio: 'Portfolio', gallery: 'Gallery', about: 'About', contact: 'Contact' },
     home: {
       tagline: 'Colour has not disappeared. It hides.',
+      quote: 'beneath the veil, colour remains.',
       sub: 'Painting, photography, collage and design by Marina Descalzi',
       cta: 'Visit the shop',
       shopT: 'Shop', shopD: 'Unique pieces, with certificate of authenticity.',
@@ -84,6 +86,7 @@ export const ui = {
     nav: { home: 'Home', shop: 'Negozio', portfolio: 'Portfolio', gallery: 'Galleria', about: 'Chi sono', contact: 'Contatto' },
     home: {
       tagline: 'Il colore non è scomparso. Si nasconde.',
+      quote: 'sotto il velo, il colore permane.',
       sub: 'Pittura, fotografia, collage e design di Marina Descalzi',
       cta: 'Vai al negozio',
       shopT: 'Negozio', shopD: 'Pezzi unici, con certificato di autenticità.',

@@ -5,8 +5,8 @@ alt: "Pintura abstracta con una mancha turquesa y toques de color rosa, verde y 
 categoria: pintura
 estado: disponible
 medidas: "100 x 80 cm"
-tecnica: "Técnica mixta: lana, pintura seca, spray, acrílico"
-tecnica_en: "Mixed media: wool, dry paint, spray paint, acrylic"
-tecnica_it: "Tecnica mista: lana, pittura secca, spray, acrilico"
+tecnica: "Técnica mixta: acrílico, lana, spray"
+tecnica_en: "Mixed media: acrylic, wool, spray paint"
+tecnica_it: "Tecnica mista: acrilico, lana, spray"
 orden: 2
 ---

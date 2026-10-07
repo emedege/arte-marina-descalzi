@@ -34,7 +34,10 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Marina Descalzi',
+  alternateName: 'Marina Descalzi Guercio',
   jobTitle: 'Visual artist',
+  birthDate: '1990',
+  birthPlace: 'Madrid, Spain',
   url: site,
   sameAs: [INSTAGRAM],
 };
@@ -134,6 +137,12 @@ const jsonLd = {
         }, { rootMargin: '-25% 0px -25% 0px', threshold: 0 });
         document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
       }
+      // La cita pasa de gris a color al aparecer
+      var qs = document.querySelectorAll('.quote');
+      if ('IntersectionObserver' in window) {
+        var qo = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); qo.unobserve(e.target); } }); }, { threshold: 0.6 });
+        qs.forEach(function (q) { qo.observe(q); });
+      } else { qs.forEach(function (q) { q.classList.add('in'); }); }
     </script>
   </body>
 </html>

@@ -164,3 +164,10 @@ p { margin: 0 0 1em; }
 .about .reveal { aspect-ratio: 4 / 5; }
 
 .logo-mark { height: clamp(5rem, 12vw, 8rem); width: auto; }
+
+/* Cita grande: pasa de gris a color al aparecer */
+.quote-band { padding-block: clamp(3rem, 9vw, 7rem); text-align: center; background: var(--rosa-suave); }
+.quote { margin: 0; }
+.quote p { margin: 0; font-weight: 300; text-transform: none; letter-spacing: 0.01em; line-height: 1.2; font-size: clamp(1.9rem, 5.5vw, 4rem); color: #a9a4ad; transition: color 2.2s ease; }
+.quote.in p { color: var(--turquesa); }
+@media (prefers-reduced-motion: reduce) { .quote p { color: var(--turquesa); transition: none; } }
