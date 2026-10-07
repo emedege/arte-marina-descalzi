@@ -57,7 +57,7 @@ p { margin: 0 0 1em; }
 /* Pincelada: al pasar o estar en la página, el enlace se "pinta" de turquesa clarito como un trazo de pintura */
 .nav a::before {
   content: ''; position: absolute; z-index: -1; inset: 0.05rem -0.7rem;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath fill='%23bddbc8' d='M3 23C2 9 28 4 60 7c32-2 56 2 57 14 1 12-24 15-57 13C28 36 4 36 3 23Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath fill='%23b3dcb8' d='M3 23C2 9 28 4 60 7c32-2 56 2 57 14 1 12-24 15-57 13C28 36 4 36 3 23Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
   transform: rotate(-1.4deg); clip-path: inset(0 100% 0 0); transition: clip-path 0.55s cubic-bezier(0.7, 0, 0.2, 1);
 }
 .nav a:hover::before, .nav a:focus-visible::before, .nav a[aria-current='page']::before, .nav a[aria-current='true']::before { clip-path: inset(0 0 0 0); }
