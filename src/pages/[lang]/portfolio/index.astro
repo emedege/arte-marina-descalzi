@@ -10,14 +10,14 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 const f = tr.filters as Record<string, string>;
 const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
-const order = ['pintura', 'fotografia', 'collage', 'diseno'];
-// Collage siempre tiene su hueco, aunque aún no haya obras
+const order = ['pintura', 'fotografia', 'collage', 'intervencion', 'diseno'];
+// Collage e intervenciones siempre tienen su hueco, aunque aún no haya obras
 const covers = order
   .map((cat) => {
     const list = obras.filter((o) => o.data.categoria === cat);
     return { cat, cover: list.find((o) => o.data.portada) ?? list[0] };
   })
-  .filter((c) => c.cover || c.cat === 'collage');
+  .filter((c) => c.cover || c.cat === 'collage' || c.cat === 'intervencion');
 ---
 
 <Base lang={lang} title={tr.pages.portTitle} description={tr.pages.portIntro} path="portfolio/">

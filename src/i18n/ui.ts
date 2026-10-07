@@ -41,7 +41,7 @@ export const ui = {
     },
     news: { title: 'Cartas desde el taller', text: 'Novedades, procesos y obra nueva, sin prisa.', email: 'Tu email', button: 'Quiero recibirlas' },
     footer: { rights: 'Todos los derechos reservados', legal: 'Aviso legal', privacy: 'Privacidad', cookies: 'Cookies', terms: 'Condiciones de venta' },
-    filters: { label: 'Filtrar por tipo de obra', all: 'Todas', pintura: 'Pintura', fotografia: 'Fotografía', collage: 'Collage', diseno: 'Diseño' },
+    filters: { label: 'Filtrar por tipo de obra', all: 'Todas', pintura: 'Pintura', fotografia: 'Fotografía', collage: 'Collage', intervencion: 'Intervenciones', diseno: 'Diseño' },
     lang: 'Idioma',
   },
   en: {
@@ -79,7 +79,7 @@ export const ui = {
     },
     news: { title: 'Letters from the studio', text: 'News, processes and new work, unhurried.', email: 'Your email', button: 'I want to receive them' },
     footer: { rights: 'All rights reserved', legal: 'Legal notice', privacy: 'Privacy', cookies: 'Cookies', terms: 'Terms of sale' },
-    filters: { label: 'Filter by type of work', all: 'All', pintura: 'Painting', fotografia: 'Photography', collage: 'Collage', diseno: 'Design' },
+    filters: { label: 'Filter by type of work', all: 'All', pintura: 'Painting', fotografia: 'Photography', collage: 'Collage', intervencion: 'Interventions', diseno: 'Design' },
     lang: 'Language',
   },
   it: {
@@ -117,7 +117,7 @@ export const ui = {
     },
     news: { title: 'Lettere dallo studio', text: 'Novità, processi e nuove opere, senza fretta.', email: 'La tua email', button: 'Voglio riceverle' },
     footer: { rights: 'Tutti i diritti riservati', legal: 'Note legali', privacy: 'Privacy', cookies: 'Cookie', terms: 'Condizioni di vendita' },
-    filters: { label: 'Filtra per tipo di opera', all: 'Tutte', pintura: 'Pittura', fotografia: 'Fotografia', collage: 'Collage', diseno: 'Design' },
+    filters: { label: 'Filtra per tipo di opera', all: 'Tutte', pintura: 'Pittura', fotografia: 'Fotografia', collage: 'Collage', intervencion: 'Interventi', diseno: 'Design' },
     lang: 'Lingua',
   },
 } as const;

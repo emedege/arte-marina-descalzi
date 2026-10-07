@@ -13,7 +13,7 @@ const tr = t(lang);
 const obras = (await getCollection('obras'))
   .filter((o) => o.data.estado !== 'no a la venta')
   .sort((a, b) => a.data.orden - b.data.orden);
-const order = ['pintura', 'fotografia', 'collage', 'diseno'];
+const order = ['pintura', 'fotografia', 'collage', 'intervencion', 'diseno'];
 const cats = order.filter((c) => obras.some((o) => o.data.categoria === c));
 ---
 
