@@ -1,8 +1,7 @@
 ---
-title: "Fotografía XXI"
+title: ""
+tipo: inspiracion
 image: /obras/foto-vaso-luz.webp
 alt: "Vaso de cristal sobre una mesa con luz y sombra"
-categoria: fotografia
-estado: no a la venta
-orden: 117
+orden: 21
 ---
