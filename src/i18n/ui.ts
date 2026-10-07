@@ -8,11 +8,11 @@ export const INSTAGRAM = 'https://www.instagram.com/marinadescalzig/';
 export const ui = {
   es: {
     htmlLang: 'es-ES',
-    siteDesc: 'Arte visual de Marina Descalzi: pintura, escultura y fotografía. El color que se esconde y vuelve a salir.',
+    siteDesc: 'Arte visual de Marina Descalzi: pintura, escultura, fotografía y collage. El color que se esconde y vuelve a salir.',
     nav: { home: 'Inicio', shop: 'Tienda', portfolio: 'Portfolio', gallery: 'Galería', about: 'Quién soy', contact: 'Contacto' },
     home: {
       tagline: 'El color no ha desaparecido. Se esconde.',
-      sub: 'Pintura, escultura y fotografía de Marina Descalzi',
+      sub: 'Pintura, escultura, fotografía y collage de Marina Descalzi',
       cta: 'Ver la tienda',
       shopT: 'Tienda', shopD: 'Piezas únicas, con certificado de autenticidad.',
       portT: 'Portfolio', portD: 'Lo que he hecho, serie a serie.',
@@ -41,11 +41,11 @@ export const ui = {
   },
   en: {
     htmlLang: 'en',
-    siteDesc: 'Visual art by Marina Descalzi: painting, sculpture and photography. Colour that hides, then comes back.',
+    siteDesc: 'Visual art by Marina Descalzi: painting, sculpture, photography and collage. Colour that hides, then comes back.',
     nav: { home: 'Home', shop: 'Shop', portfolio: 'Portfolio', gallery: 'Gallery', about: 'About', contact: 'Contact' },
     home: {
       tagline: 'Colour has not disappeared. It hides.',
-      sub: 'Painting, sculpture and photography by Marina Descalzi',
+      sub: 'Painting, sculpture, photography and collage by Marina Descalzi',
       cta: 'Visit the shop',
       shopT: 'Shop', shopD: 'Unique pieces, with certificate of authenticity.',
       portT: 'Portfolio', portD: 'What I have made, series by series.',
@@ -74,11 +74,11 @@ export const ui = {
   },
   it: {
     htmlLang: 'it-IT',
-    siteDesc: 'Arte visiva di Marina Descalzi: pittura, scultura e fotografia. Il colore che si nasconde e poi riemerge.',
+    siteDesc: 'Arte visiva di Marina Descalzi: pittura, scultura, fotografia e collage. Il colore che si nasconde e poi riemerge.',
     nav: { home: 'Home', shop: 'Negozio', portfolio: 'Portfolio', gallery: 'Galleria', about: 'Chi sono', contact: 'Contatto' },
     home: {
       tagline: 'Il colore non è scomparso. Si nasconde.',
-      sub: 'Pittura, scultura e fotografia di Marina Descalzi',
+      sub: 'Pittura, scultura, fotografia e collage di Marina Descalzi',
       cta: 'Vai al negozio',
       shopT: 'Negozio', shopD: 'Pezzi unici, con certificato di autenticità.',
       portT: 'Portfolio', portD: 'Ciò che ho fatto, serie dopo serie.',
