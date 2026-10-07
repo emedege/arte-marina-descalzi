@@ -11,12 +11,13 @@ const tr = t(lang);
 const f = tr.filters as Record<string, string>;
 const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
 const order = ['pintura', 'fotografia', 'collage', 'diseno'];
+// Collage siempre tiene su hueco, aunque aún no haya obras
 const covers = order
   .map((cat) => {
     const list = obras.filter((o) => o.data.categoria === cat);
     return { cat, cover: list.find((o) => o.data.portada) ?? list[0] };
   })
-  .filter((c) => c.cover);
+  .filter((c) => c.cover || c.cat === 'collage');
 ---
 
 <Base lang={lang} title={tr.pages.portTitle} description={tr.pages.portIntro} path="portfolio/">
@@ -26,14 +27,21 @@ const covers = order
   </div>
   <div class="wrap section">
     <div class="triptych">
-      {covers.map((c, i) => (
-        <a href={`/${lang}/portfolio/${c.cat}/`}>
-          <div class="reveal">
-            <img src={c.cover.data.image} alt={c.cover.data.alt} width="800" height="1000" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+      {covers.map((c, i) =>
+        c.cover ? (
+          <a href={`/${lang}/portfolio/${c.cat}/`}>
+            <div class="reveal">
+              <img src={c.cover.data.image} alt={c.cover.data.alt} width="800" height="1000" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+            </div>
+            <h2>{f[c.cat]}</h2>
+          </a>
+        ) : (
+          <div class="soon">
+            <div class="soon-box"><span>{tr.pages.galEmpty}</span></div>
+            <h2>{f[c.cat]}</h2>
           </div>
-          <h2>{f[c.cat]}</h2>
-        </a>
-      ))}
+        )
+      )}
     </div>
   </div>
 </Base>
