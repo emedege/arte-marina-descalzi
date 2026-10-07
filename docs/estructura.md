@@ -46,7 +46,7 @@ Colección única **Obra** con campo `estado`: `disponible` | `vendida` | `no a 
 
 ## Diseño
 - Rosa (#ecc4c7, el de Sophie Tea; acento #c47f88) y turquesa oscuro (#2f7d63), tonos apagados con identidad.
-- Tipografía fina y elegante, todo en MAYÚSCULAS (aplicado por CSS).
+- Tipografía Raleway fina (la de Sophie Tea) en toda la web, todo en MAYÚSCULAS (por CSS), salvo la frase de portada, que va en minúsculas. Títulos y nombre de marca en turquesa.
 - Muy visual, imágenes grandes, mucho espacio.
 - Efecto del color: ratón (ordenador) / scroll (móvil). Respeta `prefers-reduced-motion`. Precio e información nunca dependen solo del hover.
 - Vídeo hero con imagen de póster y versión ligera para móvil.
