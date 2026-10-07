@@ -84,13 +84,16 @@ const tiles = [
         txt.split(' ').forEach(function (word, k) {
           var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
           word.split('').forEach(function (ch) {
-            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; var slow = slowFrom != null && pos >= slowFrom; if (slow && pos === slowFrom) d += 700; d += slow ? 170 : 55; c.style.setProperty('--d', d + 'ms'); c.style.setProperty('--t', slow ? '0.9s' : '0.35s'); pos++; i++; w.appendChild(c);
+            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; var slow = slowFrom != null && pos >= slowFrom; if (slow && pos === slowFrom) d += 700; d += slow ? 170 : 55; if (slow) c.setAttribute('data-slow', ''); c.style.setProperty('--d', d + 'ms'); c.style.setProperty('--t', slow ? '0.9s' : '0.35s'); pos++; i++; w.appendChild(c);
           });
           el.appendChild(w);
           if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); pos++; d += (slowFrom != null && pos > slowFrom) ? 170 : 55; }
         });
         el.classList.add('tipea');
-        return function () { setTimeout(function () { el.classList.add('go'); }, delay || 0); };
+        return function () {
+          setTimeout(function () { el.classList.add('go'); }, delay || 0);
+          if (slowFrom != null) setTimeout(function () { el.classList.add('vela'); }, (delay || 0) + d + 1500);
+        };
       }
       var tag = document.querySelector('.intro h1');
       if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 2200, cut > 0 ? cut : null); startTag(); }
@@ -102,12 +105,6 @@ const tiles = [
           qio.observe(q);
         } else { startQ(); }
       }
-      // El logo camina de nuevo al tocarlo
-      var logo = document.querySelector('.logo-mark');
-      if (logo) logo.addEventListener('click', function () {
-        logo.classList.add('camina'); void logo.offsetWidth; logo.classList.remove('camina');
-        logo.style.animation = 'none'; void logo.offsetWidth; logo.style.animation = '';
-      });
       // Velo: cubre las imágenes de la portada y se levanta al bajar
       var root = document.documentElement;
       {

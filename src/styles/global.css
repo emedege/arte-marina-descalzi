@@ -230,15 +230,8 @@ p { margin: 0 0 1em; }
 /* Velo que se levanta al bajar la página (portada) */
 .triptych.penta .reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(248, 244, 239, 0.92); opacity: var(--veil, 0); backdrop-filter: blur(calc(var(--veil, 0) * 8px)); -webkit-backdrop-filter: blur(calc(var(--veil, 0) * 8px)); }
 
-/* El logo camina */
-@keyframes paso { 0% { transform: translateY(0) rotate(-8deg); } 25% { transform: translateY(-0.7rem) rotate(0deg); } 50% { transform: translateY(0) rotate(8deg); } 75% { transform: translateY(-0.7rem) rotate(0deg); } 100% { transform: translateY(0) rotate(-8deg); } }
-@keyframes avanza { from { translate: -34vw 0; opacity: 0; } 15% { opacity: 1; } to { translate: 0 0; opacity: 1; } }
-.logo-mark { transform-origin: 50% 90%; cursor: pointer; animation: avanza 3.6s ease-out both, paso 0.9s ease-in-out 4; }
-.logo-mark.camina { animation: none; }
-.logo-mark.camina-otra { animation: avanza 3.6s ease-out both, paso 0.9s ease-in-out 4; }
-.brand:hover .brand-mark img, .brand:focus-visible .brand-mark img { transform-origin: 50% 90%; animation: paso 0.6s ease-in-out 2; }
-
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
 .tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
 .tipea.go .c { opacity: 1; }
+.tipea.go.vela .c[data-slow] { opacity: 0.2; transition: opacity 3s ease; transition-delay: 0ms; }
