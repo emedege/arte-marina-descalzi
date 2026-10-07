@@ -23,6 +23,7 @@ const cats = order.filter((c) => obras.some((o) => o.data.categoria === c));
     <p>{tr.pages.shopIntro}</p>
   </div>
   <div class="wrap section">
+    {obras.length === 0 && <p>{tr.pages.shopEmpty}</p>}
     <Filters lang={lang} cats={cats} />
     <div class="grid" style="margin-top:0">
       {obras.map((o, i) => (
