@@ -45,8 +45,11 @@ const tiles = [
     <div class="wrap">
       <div class="video-box">
         <div class="clips">
-          <video class="on" autoplay muted loop playsinline preload="metadata" poster="/videos/telas-poster.jpg" aria-hidden="true">
+          <video class="on" autoplay muted playsinline preload="metadata" poster="/videos/telas-poster.jpg" aria-hidden="true">
             <source src="/videos/telas.mp4" type="video/mp4" />
+          </video>
+          <video muted playsinline preload="none" poster="/videos/video2-poster.jpg" aria-hidden="true">
+            <source src="/videos/video2.mp4" type="video/mp4" />
           </video>
           <div class="frame-stage" aria-hidden="true">
             {slides.map((sl, i) => (
