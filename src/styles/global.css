@@ -178,3 +178,5 @@ p { margin: 0 0 1em; }
   .brand { font-size: 0.95rem; letter-spacing: 0.08em; gap: 0.5rem; }
   .brand-mark img { height: 2.3rem; }
 }
+
+.about p { text-transform: none; letter-spacing: 0.02em; font-size: 1.1rem; max-width: 36rem; }
