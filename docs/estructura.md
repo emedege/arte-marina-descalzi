@@ -14,7 +14,7 @@ Referencias: malikafavre.com (minimalismo, imágenes grandes), sophieteaart.com 
 - **Inicio**: vídeo de fondo (cielo, nubes, plantas, telas, hilos, procesos) con obras enmarcadas que van cambiando. Accesos a Tienda, Portfolio y Galería. Newsletter discreta al pie.
 - **Tienda**: obras disponibles y vendidas (con etiqueta "Vendida"). Inicialmente 6 obras (cuadros y láminas).
 - **Portfolio**: todo lo realizado, por series.
-- **Galería**: vídeos, procesos y piezas no vendibles.
+- **Galería**: vídeos y procesos del taller.
 - **Quién soy**
 - **Blog**: solo en español.
 - **Contacto**: WhatsApp (689 187 877), Instagram @marinadescalzig, solicitud de dossier / encargo.
