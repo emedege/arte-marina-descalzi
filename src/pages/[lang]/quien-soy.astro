@@ -14,8 +14,10 @@ const tr = t(lang);
     <h1>{tr.pages.aboutTitle}</h1>
   </div>
   <div class="wrap section about">
-    <div class="reveal">
-      <img src="/img/marina-descalzi.webp" alt={tr.pages.aboutAlt} width="1100" height="1375" fetchpriority="high" decoding="async" />
+    <div class="about-photo">
+      <div class="reveal">
+        <img src="/img/marina-descalzi.webp" alt={tr.pages.aboutAlt} width="1100" height="1375" fetchpriority="high" decoding="async" />
+      </div>
     </div>
     <div>
       {tr.pages.aboutText.map((p) => <p>{p}</p>)}

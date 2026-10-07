@@ -172,7 +172,11 @@ p { margin: 0 0 1em; }
 /* Quién soy */
 .about { display: grid; gap: clamp(1.5rem, 4vw, 4rem); grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 800px) { .about { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); } }
-.about .reveal { aspect-ratio: 4 / 5; }
+.about-photo { position: relative; padding: 0 0 1.4rem 1.4rem; }
+.about-photo .reveal { aspect-ratio: 1 / 1.1547; clip-path: var(--forma); background: none; position: relative; z-index: 1; }
+.about-photo::before { content: ''; position: absolute; inset: 1.4rem 1.4rem 0 0; background: var(--rosa); clip-path: var(--forma); }
+.about-photo::after { content: ''; position: absolute; left: 0; top: 14%; width: 22%; aspect-ratio: 1 / 1.1547; background: var(--turquesa-suave); clip-path: var(--forma); z-index: 2; opacity: 0.9; }
+@media (min-width: 800px) { .about-photo { position: sticky; top: 6rem; } }
 
 .logo-mark { height: clamp(5rem, 12vw, 8rem); width: auto; }
 
