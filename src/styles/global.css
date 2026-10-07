@@ -135,7 +135,7 @@ p { margin: 0 0 1em; }
 .facts { list-style: none; padding: 0; margin: 1.5rem 0; border-top: 1px solid var(--line); }
 .facts li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
 .facts span:first-child { color: var(--muted); }
-.price { font-family: var(--serif); font-size: 2rem; }
+.price { font-family: 'Raleway', var(--sans); font-weight: 300; font-size: 1.4rem; letter-spacing: 0.08em; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
 .note { color: var(--muted); font-size: 0.9rem; }
 .placeholder-note { background: var(--rosa-suave); padding: 0.4rem 0.8rem; font-size: 0.8rem; margin-top: 1rem; }
