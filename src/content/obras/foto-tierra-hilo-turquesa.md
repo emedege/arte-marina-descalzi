@@ -1,8 +1,8 @@
 ---
-title: "Fotografía XX"
+title: "Intervención II"
 image: /obras/foto-tierra-hilo-turquesa.webp
 alt: "Tierra agrietada con un hilo turquesa"
-categoria: fotografia
+categoria: intervencion
 estado: no a la venta
-orden: 116
+orden: 121
 ---

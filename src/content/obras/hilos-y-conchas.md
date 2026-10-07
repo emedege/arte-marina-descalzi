@@ -1,8 +1,9 @@
 ---
-title: "Sin título XI"
+title: "Intervención I"
 image: /obras/hilos-y-conchas.webp
 alt: "Obra de texturas con conchas, hilos y materiales sobre fondo rosa"
-categoria: pintura
+categoria: intervencion
 estado: no a la venta
-orden: 11
+orden: 120
+portada: true
 ---

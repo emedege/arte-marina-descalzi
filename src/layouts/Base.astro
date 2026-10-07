@@ -135,8 +135,8 @@ const jsonLd = {
         var open = nav.classList.toggle('open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      // El color se revela: en pantallas táctiles, al hacer scroll
-      if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+      // El color se revela: al hacer scroll (y con el ratón, al pasar por encima)
+      if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (e) {
             e.target.classList.toggle('is-revealed', e.isIntersecting);
