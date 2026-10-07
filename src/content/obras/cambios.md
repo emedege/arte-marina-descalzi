@@ -6,5 +6,9 @@ categoria: pintura
 estado: disponible
 medidas: "40 x 40 cm"
 precio: 500
+tecnica: "Acrílico sobre lienzo"
+tecnica_en: "Acrylic on canvas"
+tecnica_it: "Acrilico su tela"
+exposicion: "Maternidad, Galería Mestiza, Madrid"
 orden: 4
 ---
