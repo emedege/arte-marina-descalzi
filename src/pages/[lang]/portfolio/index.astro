@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { locales, t, type Lang } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const f = tr.filters as Record<string, string>;
+const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
+const order = ['pintura', 'fotografia', 'collage', 'diseno'];
+const covers = order
+  .map((cat) => {
+    const list = obras.filter((o) => o.data.categoria === cat);
+    return { cat, cover: list.find((o) => o.data.portada) ?? list[0] };
+  })
+  .filter((c) => c.cover);
+---
+
+<Base lang={lang} title={tr.pages.portTitle} description={tr.pages.portIntro} path="portfolio/">
+  <div class="wrap page-head">
+    <h1>{tr.pages.portTitle}</h1>
+    <p>{tr.pages.portIntro}</p>
+  </div>
+  <div class="wrap section">
+    <div class="triptych">
+      {covers.map((c, i) => (
+        <a href={`/${lang}/portfolio/${c.cat}/`}>
+          <div class="reveal">
+            <img src={c.cover.data.image} alt={c.cover.data.alt} width="800" height="1000" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+          </div>
+          <h2>{f[c.cat]}</h2>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

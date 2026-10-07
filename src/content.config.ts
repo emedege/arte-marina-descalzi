@@ -19,6 +19,7 @@ const obras = defineCollection({
     anio: z.number().optional(),
     serie: z.string().optional(),
     orden: z.number().default(0),
+    portada: z.boolean().default(false),
     placeholder: z.boolean().default(false),
   }),
 });

@@ -1,0 +1,33 @@
+---
+import Base from '../../../layouts/Base.astro';
+import WorkCard from '../../../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+import { locales, t, type Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const obras = await getCollection('obras');
+  const cats = [...new Set(obras.map((o) => o.data.categoria))];
+  return locales.flatMap((lang) => cats.map((cat) => ({ params: { lang, cat } })));
+}
+const lang = Astro.params.lang as Lang;
+const cat = Astro.params.cat as string;
+const tr = t(lang);
+const f = tr.filters as Record<string, string>;
+const obras = (await getCollection('obras'))
+  .filter((o) => o.data.categoria === cat)
+  .sort((a, b) => a.data.orden - b.data.orden);
+---
+
+<Base lang={lang} title={`${f[cat]} · ${tr.pages.portTitle}`} description={tr.pages.portIntro} path={`portfolio/${cat}/`}>
+  <div class="wrap page-head">
+    <p class="note" style="margin:0 0 0.6rem"><a href={`/${lang}/portfolio/`}>← {tr.pages.portTitle}</a></p>
+    <h1>{f[cat]}</h1>
+  </div>
+  <div class="wrap section">
+    <div class="grid" style="margin-top:0">
+      {obras.map((o, i) => (
+        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} categoria={o.data.categoria} loading={i < 3 ? 'eager' : 'lazy'} />
+      ))}
+    </div>
+  </div>
+</Base>
