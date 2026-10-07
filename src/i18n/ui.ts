@@ -32,7 +32,7 @@ export const ui = {
     },
     work: {
       sold: 'Vendida', available: 'Disponible', notForSale: 'No a la venta',
-      size: 'Medidas', price: 'Precio', technique: 'Técnica', year: 'Año',
+      size: 'Medidas', price: 'Precio', priceAsk: 'Consultar', technique: 'Técnica', year: 'Año', exhibited: 'Expuesta en',
       shippingIncl: 'Envío incluido (Península y Baleares). Pieza única con certificado de autenticidad.',
       buyWhatsapp: 'Comprar por WhatsApp', buyPaypal: 'Pagar con PayPal', paypalSoon: 'Pago con PayPal próximamente',
       back: 'Volver', wa: (t: string) => `Hola Marina, me interesa la obra "${t}".`,
@@ -68,7 +68,7 @@ export const ui = {
     },
     work: {
       sold: 'Sold', available: 'Available', notForSale: 'Not for sale',
-      size: 'Size', price: 'Price', technique: 'Technique', year: 'Year',
+      size: 'Size', price: 'Price', priceAsk: 'On request', technique: 'Technique', year: 'Year', exhibited: 'Exhibited at',
       shippingIncl: 'Shipping included (mainland Spain and Balearic Islands). Unique piece with certificate of authenticity.',
       buyWhatsapp: 'Buy via WhatsApp', buyPaypal: 'Pay with PayPal', paypalSoon: 'PayPal payment coming soon',
       back: 'Back', wa: (t: string) => `Hello Marina, I am interested in the work "${t}".`,
@@ -104,7 +104,7 @@ export const ui = {
     },
     work: {
       sold: 'Venduta', available: 'Disponibile', notForSale: 'Non in vendita',
-      size: 'Misure', price: 'Prezzo', technique: 'Tecnica', year: 'Anno',
+      size: 'Misure', price: 'Prezzo', priceAsk: 'Su richiesta', technique: 'Tecnica', year: 'Anno', exhibited: 'Esposta a',
       shippingIncl: 'Spedizione inclusa (Spagna continentale e Baleari). Pezzo unico con certificato di autenticità.',
       buyWhatsapp: 'Acquista su WhatsApp', buyPaypal: 'Paga con PayPal', paypalSoon: 'Pagamento con PayPal in arrivo',
       back: 'Indietro', wa: (t: string) => `Ciao Marina, sono interessato all'opera "${t}".`,

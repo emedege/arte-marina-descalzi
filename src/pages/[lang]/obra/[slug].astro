@@ -11,6 +11,7 @@ const lang = Astro.params.lang as Lang;
 const { obra } = Astro.props;
 const d = obra.data;
 const tr = t(lang);
+const tecnica = (lang === 'en' ? d.tecnica_en : lang === 'it' ? d.tecnica_it : undefined) ?? d.tecnica;
 const forSale = d.estado === 'disponible';
 const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(tr.work.wa(d.title))}`;
 const estadoLabel = d.estado === 'vendida' ? tr.work.sold : d.estado === 'disponible' ? tr.work.available : tr.work.notForSale;
@@ -33,7 +34,7 @@ const jsonLd = {
 <Base
   lang={lang}
   title={d.title}
-  description={[d.title, d.medidas, d.tecnica].filter(Boolean).join('. ')}
+  description={[d.title, d.medidas, tecnica].filter(Boolean).join('. ')}
   path={`obra/${obra.id}/`}
   image={d.image}
   noindex={d.placeholder}
@@ -51,9 +52,10 @@ const jsonLd = {
       </p>
       <ul class="facts">
         {d.medidas && <li><span>{tr.work.size}</span><span>{d.medidas}</span></li>}
-        {d.tecnica && <li><span>{tr.work.technique}</span><span>{d.tecnica}</span></li>}
+        {tecnica && <li><span>{tr.work.technique}</span><span>{tecnica}</span></li>}
+        {d.exposicion && <li><span>{tr.work.exhibited}</span><span>{d.exposicion}</span></li>}
         {d.anio && <li><span>{tr.work.year}</span><span>{d.anio}</span></li>}
-        {d.precio && d.estado !== 'no a la venta' && <li><span>{tr.work.price}</span><span class="price">{fmt(d.precio)}</span></li>}
+        {d.estado !== 'no a la venta' && <li><span>{tr.work.price}</span><span class="price">{d.precio ? fmt(d.precio) : tr.work.priceAsk}</span></li>}
       </ul>
       {forSale && (
         <>
