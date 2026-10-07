@@ -162,3 +162,5 @@ p { margin: 0 0 1em; }
 .about { display: grid; gap: clamp(1.5rem, 4vw, 4rem); grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 800px) { .about { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); } }
 .about .reveal { aspect-ratio: 4 / 5; }
+
+.logo-mark { height: clamp(5rem, 12vw, 8rem); width: auto; }
