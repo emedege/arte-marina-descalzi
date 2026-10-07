@@ -116,16 +116,19 @@ p { margin: 0 0 1em; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid var(--rosa-fuerte); color: #924f58; margin-left: 0.4rem; vertical-align: middle; }
 
 /* Inicio */
-.hero { position: relative; height: calc(100svh - 4rem); min-height: 30rem; max-height: 60rem; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: #5d6fa8 url('/videos/telas-poster.jpg') center / cover no-repeat; }
-.hero-bg { position: absolute; inset: 0; z-index: -1; }
-.hero-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
-.hero-bg video.on { opacity: 1; }
+.hero { position: relative; height: min(calc(100svh - 4rem), 48rem); min-height: 28rem; display: grid; place-items: center; overflow: hidden; background: radial-gradient(60% 70% at 18% 20%, var(--rosa), transparent 70%), radial-gradient(60% 70% at 82% 85%, var(--turquesa-suave), transparent 70%), var(--bg); }
+.video-band { padding-bottom: clamp(3rem, 8vw, 6rem); }
+.video-box { position: relative; width: min(100%, 52rem); margin-inline: auto; aspect-ratio: 4 / 3; padding: clamp(0.5rem, 1.4vw, 0.9rem); background: #fff; box-shadow: 0 1.2rem 3rem rgba(52, 48, 58, 0.18); }
+.video-box .clips { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--turquesa-suave); }
+.video-box video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+.video-box video.on { opacity: 1; }
+.video-box .hero-pause { left: auto; right: clamp(1rem, 2.4vw, 1.6rem); bottom: clamp(1rem, 2.4vw, 1.6rem); }
 .hero-pause { position: absolute; left: var(--gutter); bottom: 1rem; z-index: 2; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(248, 244, 239, 0.85); color: var(--ink); cursor: pointer; }
 .hero-pause:hover { background: var(--bg); }
 .hero-pause .i-play { display: none; }
 .hero-pause[aria-pressed='true'] .i-pause { display: none; }
 .hero-pause[aria-pressed='true'] .i-play { display: block; }
-.frame-stage { position: relative; height: min(72%, 36rem); aspect-ratio: 4 / 5; max-width: 82vw; padding: clamp(0.5rem, 1.4vw, 0.9rem); background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,0.7), 0 1.6rem 3.5rem rgba(20, 20, 50, 0.35); }
+.frame-stage { position: relative; height: min(72%, 36rem); aspect-ratio: 4 / 5; max-width: 82vw; padding: clamp(0.5rem, 1.4vw, 0.9rem); background: #fff; box-shadow: 0 1.4rem 3rem rgba(52, 48, 58, 0.22); }
 .frame-stage .slide { position: absolute; inset: clamp(0.5rem, 1.4vw, 0.9rem); opacity: 0; transition: opacity 1.3s ease; }
 .frame-stage .slide.on { opacity: 1; }
 .frame-stage .slide img { width: 100%; height: 100%; object-fit: cover; }
