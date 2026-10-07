@@ -45,7 +45,7 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
                     <div class="reveal">
                       <img src={i.data.image} alt={i.data.alt ?? ''} width="800" height="1000" loading="lazy" decoding="async" />
                     </div>
-                    <figcaption>{titleOf(i.data)}</figcaption>
+                    {titleOf(i.data) && <figcaption>{titleOf(i.data)}</figcaption>}
                   </figure>
                 )
               )}
