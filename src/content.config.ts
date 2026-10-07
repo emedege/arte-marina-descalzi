@@ -24,4 +24,19 @@ const obras = defineCollection({
   }),
 });
 
-export const collections = { obras };
+const galeria = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/galeria' }),
+  schema: z.object({
+    title: z.string(),
+    title_en: z.string().optional(),
+    title_it: z.string().optional(),
+    tipo: z.enum(['proceso', 'material', 'inspiracion']),
+    image: z.string().optional(),
+    alt: z.string().optional(),
+    video: z.string().optional(),
+    poster: z.string().optional(),
+    orden: z.number().default(0),
+  }),
+});
+
+export const collections = { obras, galeria };

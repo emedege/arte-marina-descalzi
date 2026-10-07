@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 import { locales, t, type Lang } from '../../i18n/ui';
 
 export function getStaticPaths() {
@@ -7,22 +8,51 @@ export function getStaticPaths() {
 }
 const lang = Astro.params.lang as Lang;
 const tr = t(lang);
+const names = tr.pages.galSections as Record<string, string>;
+const items = (await getCollection('galeria')).sort((a, b) => a.data.orden - b.data.orden);
+const order = ['proceso', 'material', 'inspiracion'] as const;
+const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_en : lang === 'it' ? d.title_it : undefined) ?? d.title;
 ---
 
 <Base lang={lang} title={tr.pages.galTitle} description={tr.pages.galIntro} path="galeria/">
   <div class="wrap page-head">
     <h1>{tr.pages.galTitle}</h1>
     <p>{tr.pages.galIntro}</p>
+    <nav class="subnav" aria-label={tr.pages.galSectionsLabel}>
+      {order.map((k) => <a href={`#${k}`}>{names[k]}</a>)}
+    </nav>
   </div>
-  <div class="wrap section">
-    <div class="grid" style="margin-top:0">
-      <figure class="video-card">
-        <video controls playsinline preload="metadata" poster="/videos/telas-poster.jpg" loop muted>
-          <source src="/videos/telas.mp4" type="video/mp4" />
-        </video>
-        <figcaption>{tr.pages.galVideo1}</figcaption>
-      </figure>
-    </div>
-    <p class="note" style="margin-top:2rem">{tr.pages.galEmpty}</p>
+  <div class="wrap section" style="padding-top:0">
+    {order.map((k) => {
+      const list = items.filter((i) => i.data.tipo === k);
+      return (
+        <section class="gal-section" id={k} aria-labelledby={`h-${k}`}>
+          <h2 id={`h-${k}`}>{names[k]}</h2>
+          {list.length === 0 ? (
+            <p class="note">{tr.pages.galEmpty}</p>
+          ) : (
+            <div class="grid" style="margin-top:0">
+              {list.map((i) =>
+                i.data.video ? (
+                  <figure class="video-card">
+                    <video controls playsinline preload="metadata" poster={i.data.poster} loop muted>
+                      <source src={i.data.video} type="video/mp4" />
+                    </video>
+                    <figcaption>{titleOf(i.data)}</figcaption>
+                  </figure>
+                ) : (
+                  <figure class="gal-item">
+                    <div class="reveal">
+                      <img src={i.data.image} alt={i.data.alt ?? ''} width="800" height="1000" loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{titleOf(i.data)}</figcaption>
+                  </figure>
+                )
+              )}
+            </div>
+          )}
+        </section>
+      );
+    })}
   </div>
 </Base>
