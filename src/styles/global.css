@@ -178,7 +178,7 @@ p { margin: 0 0 1em; }
 .about-photo::after { content: ''; position: absolute; left: 0; top: 14%; width: 22%; aspect-ratio: 1 / 1.1547; background: var(--turquesa-suave); clip-path: var(--forma); z-index: 2; opacity: 0.9; }
 @media (min-width: 800px) { .about-photo { position: sticky; top: 6rem; } }
 
-.logo-mark { height: clamp(5rem, 12vw, 8rem); width: auto; }
+.logo-mark { height: clamp(6.5rem, 15vw, 10.5rem); width: auto; }
 
 /* Cita grande: pasa de gris a color al aparecer */
 .quote-band { padding-block: clamp(3rem, 9vw, 7rem); text-align: center; background: var(--rosa-suave); }
@@ -233,8 +233,8 @@ p { margin: 0 0 1em; }
 /* El logo se pinta trazo a trazo */
 @keyframes pincel { from { mask-position: 0 100%; -webkit-mask-position: 0 100%; } to { mask-position: 0 0; -webkit-mask-position: 0 0; } }
 .logo-draw { display: inline-block; position: relative; aspect-ratio: 322 / 400; }
-.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 60%); mask-image: linear-gradient(to bottom, #000 40%, transparent 60%); -webkit-mask-size: 100% 250%; mask-size: 100% 250%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; animation: pincel 2.6s ease-in-out both; }
-.logo-draw .l-rosa { animation-delay: 1.1s; animation-duration: 2.8s; }
+.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 46%, transparent 54%); mask-image: linear-gradient(to bottom, #000 46%, transparent 54%); -webkit-mask-size: 100% 250%; mask-size: 100% 250%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; animation: pincel 3.2s linear both; }
+.logo-draw .l-rosa { animation-delay: 0.15s; }
 
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
