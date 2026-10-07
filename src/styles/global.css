@@ -51,9 +51,9 @@ p { margin: 0 0 1em; }
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--rosa); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
-.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--turquesa); }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; color: var(--turquesa); }
 .nav { display: flex; align-items: center; gap: clamp(0.9rem, 2.4vw, 2rem); }
-.nav a { position: relative; z-index: 0; text-decoration: none; color: var(--turquesa); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; }
+.nav a { position: relative; z-index: 0; text-decoration: none; color: var(--turquesa); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; white-space: nowrap; }
 /* Pincelada: al pasar o estar en la página, el enlace se "pinta" de turquesa clarito como un trazo de pintura */
 .nav a::before, .site-footer .links a::before, .filters button::before, .subnav a::before {
   content: ''; position: absolute; z-index: -1; inset: 0.05rem -0.7rem;
@@ -69,7 +69,7 @@ p { margin: 0 0 1em; }
 .lang a::before { inset: 0.15rem -0.1rem; }
 .menu-btn { display: none; background: none; border: 0; font: inherit; padding: 0.75rem; cursor: pointer; color: var(--turquesa); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
 
-@media (max-width: 860px) {
+@media (max-width: 1240px) {
   .menu-btn { display: block; }
   .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--rosa); flex-direction: column; align-items: flex-start; padding: 1rem var(--gutter) 1.5rem; display: none; }
   .nav.open { display: flex; }
@@ -206,7 +206,8 @@ p { margin: 0 0 1em; }
 .gal-section h2 { margin-bottom: 1.2rem; }
 .video-card figcaption, .gal-item figcaption { margin-top: 0.8rem; font-size: 0.9rem; color: var(--muted); }
 .gal-item { margin: 0; }
-.gal-item img { width: 100%; height: auto; }
+.gal-item img { width: 100%; height: 100%; }
+.gal-item .reveal { aspect-ratio: 1 / 1; clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); background: none; }
 
 /* Hueco reservado: aún sin obras */
 .soon .soon-box { aspect-ratio: 3 / 4; margin-bottom: 0.9rem; display: grid; place-items: center; text-align: center; background: linear-gradient(160deg, var(--rosa-suave), var(--turquesa-suave)); color: var(--turquesa); font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; }
