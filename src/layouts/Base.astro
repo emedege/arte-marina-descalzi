@@ -137,6 +137,15 @@ const jsonLd = {
         }, { rootMargin: '-25% 0px -25% 0px', threshold: 0 });
         document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
       }
+      // Vídeos de fondo: si el navegador bloquea el autoplay, se reintenta al primer toque o movimiento
+      var bg = document.querySelectorAll('video[autoplay]');
+      bg.forEach(function (v) {
+        var go = function () { v.play().catch(function () {}); };
+        go();
+        ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(function (ev) {
+          window.addEventListener(ev, function once() { go(); window.removeEventListener(ev, once); }, { passive: true });
+        });
+      });
       // La cita pasa de gris a color al aparecer
       var qs = document.querySelectorAll('.quote');
       if ('IntersectionObserver' in window) {
