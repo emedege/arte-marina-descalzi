@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, t, WHATSAPP, INSTAGRAM, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+---
+
+<Base lang={lang} title={tr.pages.contactTitle} description={tr.pages.contactIntro} path="contacto/">
+  <div class="wrap page-head">
+    <h1>{tr.pages.contactTitle}</h1>
+    <p>{tr.pages.contactIntro}</p>
+  </div>
+  <div class="wrap section">
+    <div class="actions" style="margin-top:0">
+      <a class="btn solid" href={`https://wa.me/${WHATSAPP}`} rel="noopener">{tr.pages.whatsapp}</a>
+      <a class="btn" href={wa(tr.pages.dossierMsg)} rel="noopener">{tr.pages.dossier}</a>
+      <a class="btn" href={INSTAGRAM} rel="me noopener">{tr.pages.instagram}</a>
+    </div>
+  </div>
+</Base>

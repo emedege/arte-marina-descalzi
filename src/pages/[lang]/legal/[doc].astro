@@ -1,0 +1,27 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { locales, t, type Lang } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  const docs = ['aviso-legal', 'privacidad', 'cookies', 'condiciones-de-venta'];
+  return locales.flatMap((lang) => docs.map((doc) => ({ params: { lang, doc } })));
+}
+const lang = Astro.params.lang as Lang;
+const doc = Astro.params.doc as string;
+const tr = t(lang);
+const titles: Record<string, string> = {
+  'aviso-legal': tr.footer.legal,
+  privacidad: tr.footer.privacy,
+  cookies: tr.footer.cookies,
+  'condiciones-de-venta': tr.footer.terms,
+};
+---
+
+<Base lang={lang} title={titles[doc]} path={`legal/${doc}/`} noindex>
+  <div class="wrap page-head">
+    <h1>{titles[doc]}</h1>
+  </div>
+  <div class="wrap section">
+    <p>Texto legal pendiente de redactar y revisar antes de abrir la tienda.</p>
+  </div>
+</Base>

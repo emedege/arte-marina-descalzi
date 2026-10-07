@@ -1,0 +1,27 @@
+---
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  title: string;
+  image: string;
+  alt: string;
+  medidas: string;
+  estado: 'disponible' | 'vendida' | 'no a la venta';
+  loading?: 'lazy' | 'eager';
+}
+const { lang, slug, title, image, alt, medidas, estado, loading = 'lazy' } = Astro.props;
+const tr = t(lang);
+---
+
+<a class="card" href={`/${lang}/obra/${slug}/`}>
+  <div class="reveal">
+    <img src={image} alt={alt} width="800" height="1000" loading={loading} decoding="async" />
+  </div>
+  <h3>
+    {title}
+    {estado === 'vendida' && <span class="badge">{tr.work.sold}</span>}
+  </h3>
+  <p class="meta">{medidas}</p>
+</a>

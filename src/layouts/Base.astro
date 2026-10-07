@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import { locales, t, langNames, WHATSAPP, INSTAGRAM, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  /** Ruta sin idioma, p. ej. "tienda/" ("" para inicio) */
+  path: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { lang, title, description, path, image, noindex = false } = Astro.props;
+const tr = t(lang);
+const site = Astro.site!.toString().replace(/\/$/, '');
+const desc = description ?? tr.siteDesc;
+const canonical = `${site}/${lang}/${path}`;
+const fullTitle = title === 'Marina Descalzi' ? 'Marina Descalzi — Arte visual' : `${title} · Marina Descalzi`;
+const ogImage = image ? `${site}${image}` : undefined;
+const current = Astro.url.pathname;
+
+const nav = [
+  { href: `/${lang}/tienda/`, label: tr.nav.shop },
+  { href: `/${lang}/portfolio/`, label: tr.nav.portfolio },
+  { href: `/${lang}/galeria/`, label: tr.nav.gallery },
+  { href: `/${lang}/quien-soy/`, label: tr.nav.about },
+  { href: `/${lang}/contacto/`, label: tr.nav.contact },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Marina Descalzi',
+  jobTitle: 'Visual artist',
+  url: site,
+  sameAs: [INSTAGRAM],
+};
+---
+
+<!doctype html>
+<html lang={tr.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {locales.map((l) => <link rel="alternate" hreflang={t(l).htmlLang} href={`${site}/${l}/${path}`} />)}
+    <link rel="alternate" hreflang="x-default" href={`${site}/es/${path}`} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Marina Descalzi" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={tr.htmlLang.replace('-', '_')} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="theme-color" content="#f8f4ef" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={`/${lang}/`}>Marina Descalzi</a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="nav" type="button">Menú</button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          {nav.map((n) => <a href={n.href} aria-current={current.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
+          <div class="lang" role="group" aria-label={tr.lang}>
+            {locales.map((l) => (
+              <a href={`/${l}/${path}`} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{langNames[l]}</a>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main"><slot /></main>
+
+    <section class="newsletter" aria-labelledby="news-title">
+      <div class="wrap inner">
+        <div>
+          <h2 id="news-title">{tr.news.title}</h2>
+          <p>{tr.news.text}</p>
+        </div>
+        <!-- TODO: conectar con el servicio de newsletter (pendiente de elegir) -->
+        <form action="#" method="post" onsubmit="return false">
+          <label class="sr-only" for="nl-email">{tr.news.email}</label>
+          <input id="nl-email" type="email" name="email" placeholder={tr.news.email} autocomplete="email" required />
+          <button class="btn" type="submit">{tr.news.button}</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="links">
+          <a href={`https://wa.me/${WHATSAPP}`}>WhatsApp</a>
+          <a href={INSTAGRAM} rel="me noopener">Instagram</a>
+          <a href={`/${lang}/legal/aviso-legal/`}>{tr.footer.legal}</a>
+          <a href={`/${lang}/legal/privacidad/`}>{tr.footer.privacy}</a>
+          <a href={`/${lang}/legal/cookies/`}>{tr.footer.cookies}</a>
+          <a href={`/${lang}/legal/condiciones-de-venta/`}>{tr.footer.terms}</a>
+        </div>
+        <p>© {new Date().getFullYear()} Marina Descalzi · {tr.footer.rights}</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Menú móvil
+      var btn = document.querySelector('.menu-btn');
+      var nav = document.getElementById('nav');
+      btn.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // El color se revela: en pantallas táctiles, al hacer scroll
+      if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            e.target.classList.toggle('is-revealed', e.isIntersecting);
+          });
+        }, { rootMargin: '-25% 0px -25% 0px', threshold: 0 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      }
+    </script>
+  </body>
+</html>

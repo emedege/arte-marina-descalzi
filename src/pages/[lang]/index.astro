@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { locales, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+
+const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
+const slides = obras.slice(0, 3);
+const pick = (i: number) => obras[i]?.data;
+const tiles = [
+  { href: 'tienda', title: tr.home.shopT, desc: tr.home.shopD, work: pick(0) },
+  { href: 'portfolio', title: tr.home.portT, desc: tr.home.portD, work: pick(1) },
+  { href: 'galeria', title: tr.home.galT, desc: tr.home.galD, work: pick(2) },
+];
+---
+
+<Base lang={lang} title="Marina Descalzi" path="">
+  <section class="hero">
+    <div class="hero-bg">
+      <!-- Vídeo de fondo: se añadirá aquí cuando estén los archivos (cielo, nubes, telas, hilos, procesos) -->
+    </div>
+    <div class="hero-inner">
+      <div class="frame-stage" aria-hidden="true">
+        {slides.map((s) => <div class="slide"><img src={s.data.image} alt="" width="800" height="1000" /></div>)}
+      </div>
+      <h1>{tr.home.tagline}</h1>
+      <p class="sub">{tr.home.sub}</p>
+      <a class="btn solid" href={`/${lang}/tienda/`}>{tr.home.cta}</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap triptych">
+      {tiles.map((x) => (
+        <a href={`/${lang}/${x.href}/`}>
+          <div class="reveal">{x.work && <img src={x.work.image} alt="" width="800" height="1000" loading="lazy" decoding="async" />}</div>
+          <h2>{x.title}</h2>
+          <p>{x.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

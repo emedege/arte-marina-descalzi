@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+---
+
+<Base lang={lang} title={tr.pages.galTitle} description={tr.pages.galIntro} path="galeria/">
+  <div class="wrap page-head">
+    <h1>{tr.pages.galTitle}</h1>
+    <p>{tr.pages.galIntro}</p>
+  </div>
+  <div class="wrap section">
+    <p>{tr.pages.galEmpty}</p>
+  </div>
+</Base>

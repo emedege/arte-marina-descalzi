@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getCollection } from 'astro:content';
+import { locales, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
+---
+
+<Base lang={lang} title={tr.pages.portTitle} description={tr.pages.portIntro} path="portfolio/">
+  <div class="wrap page-head">
+    <h1>{tr.pages.portTitle}</h1>
+    <p>{tr.pages.portIntro}</p>
+  </div>
+  <div class="wrap section">
+    <div class="grid" style="margin-top:0">
+      {obras.map((o, i) => (
+        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} loading={i < 3 ? 'eager' : 'lazy'} />
+      ))}
+    </div>
+  </div>
+</Base>
