@@ -10,7 +10,7 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 
 const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
-const slides = obras.slice(0, 3);
+const slides = obras.slice(0, 6);
 const pick = (i: number) => obras[i]?.data;
 const tiles = [
   { href: 'tienda', title: tr.home.shopT, desc: tr.home.shopD, work: pick(0) },
@@ -20,16 +20,21 @@ const tiles = [
 ---
 
 <Base lang={lang} title="Marina Descalzi" path="">
-  <section class="hero">
+  <section class="hero" aria-label={tr.home.tagline}>
     <div class="hero-bg">
       <video autoplay muted loop playsinline preload="metadata" poster="/videos/telas-poster.jpg" aria-hidden="true">
         <source src="/videos/telas.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="hero-inner">
-      <div class="frame-stage" aria-hidden="true">
-        {slides.map((s) => <div class="slide"><img src={s.data.image} alt="" width="800" height="1000" /></div>)}
-      </div>
+    <div class="frame-stage" aria-hidden="true">
+      {slides.map((s, i) => (
+        <div class={i === 0 ? 'slide on' : 'slide'}><img src={s.data.image} alt="" width="800" height="1000" loading={i === 0 ? 'eager' : 'lazy'} /></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
       <h1>{tr.home.tagline}</h1>
       <p class="sub">{tr.home.sub}</p>
       <a class="btn solid" href={`/${lang}/tienda/`}>{tr.home.cta}</a>
@@ -47,4 +52,16 @@ const tiles = [
       ))}
     </div>
   </section>
+<script is:inline>
+    (function () {
+      var slides = document.querySelectorAll('.frame-stage .slide');
+      if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var i = 0;
+      setInterval(function () {
+        slides[i].classList.remove('on');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('on');
+      }, 4500);
+    })();
+  </script>
 </Base>
