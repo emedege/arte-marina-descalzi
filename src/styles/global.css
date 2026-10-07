@@ -53,12 +53,20 @@ p { margin: 0 0 1em; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
 .brand { font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--turquesa); }
 .nav { display: flex; align-items: center; gap: clamp(0.9rem, 2.4vw, 2rem); }
-.nav a { text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; }
-.nav a[aria-current="page"] { border-bottom: 1px solid var(--ink); }
-.lang { display: flex; gap: 0.25rem; font-size: 0.85rem; }
-.lang a { padding: 0.5rem 0.4rem; text-decoration: none; color: #5b5560; }
-.lang a[aria-current='true'] { color: var(--ink); border-bottom: 1px solid var(--turquesa); }
-.menu-btn { display: none; background: none; border: 0; font: inherit; padding: 0.75rem; cursor: pointer; color: inherit; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
+.nav a { position: relative; z-index: 0; text-decoration: none; color: var(--turquesa); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; }
+/* Pincelada: al pasar o estar en la página, el enlace se "pinta" de crema como un trazo de pintura */
+.nav a::before {
+  content: ''; position: absolute; z-index: -1; inset: 0.05rem -0.7rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath fill='%23f8f4ef' d='M3 23C2 9 28 4 60 7c32-2 56 2 57 14 1 12-24 15-57 13C28 36 4 36 3 23Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  transform: rotate(-1.4deg); clip-path: inset(0 100% 0 0); transition: clip-path 0.55s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.nav a:hover::before, .nav a:focus-visible::before, .nav a[aria-current='page']::before, .nav a[aria-current='true']::before { clip-path: inset(0 0 0 0); }
+.nav a:nth-child(even)::before { transform: rotate(1.2deg); }
+@media (prefers-reduced-motion: reduce) { .nav a::before { transition: none; } }
+.lang { display: flex; gap: 0.5rem; font-size: 0.85rem; }
+.lang a { padding: 0.5rem 0.5rem; }
+.lang a::before { inset: 0.15rem -0.1rem; }
+.menu-btn { display: none; background: none; border: 0; font: inherit; padding: 0.75rem; cursor: pointer; color: var(--turquesa); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
 
 @media (max-width: 860px) {
   .menu-btn { display: block; }

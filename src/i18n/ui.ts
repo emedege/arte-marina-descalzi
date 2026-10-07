@@ -9,7 +9,7 @@ export const ui = {
   es: {
     htmlLang: 'es-ES',
     siteDesc: 'Arte visual de Marina Descalzi: pintura, escultura, fotografía y joyería. El color que se esconde y vuelve a salir.',
-    nav: { shop: 'Tienda', portfolio: 'Portfolio', gallery: 'Galería', about: 'Quién soy', contact: 'Contacto' },
+    nav: { home: 'Inicio', shop: 'Tienda', portfolio: 'Portfolio', gallery: 'Galería', about: 'Quién soy', contact: 'Contacto' },
     home: {
       tagline: 'El color no ha desaparecido. Se esconde.',
       sub: 'Pintura, escultura, fotografía y joyería de Marina Descalzi',
@@ -42,7 +42,7 @@ export const ui = {
   en: {
     htmlLang: 'en',
     siteDesc: 'Visual art by Marina Descalzi: painting, sculpture, photography and jewellery. Colour that hides, then comes back.',
-    nav: { shop: 'Shop', portfolio: 'Portfolio', gallery: 'Gallery', about: 'About', contact: 'Contact' },
+    nav: { home: 'Home', shop: 'Shop', portfolio: 'Portfolio', gallery: 'Gallery', about: 'About', contact: 'Contact' },
     home: {
       tagline: 'Colour has not disappeared. It hides.',
       sub: 'Painting, sculpture, photography and jewellery by Marina Descalzi',
@@ -75,7 +75,7 @@ export const ui = {
   it: {
     htmlLang: 'it-IT',
     siteDesc: 'Arte visiva di Marina Descalzi: pittura, scultura, fotografia e gioielli. Il colore che si nasconde e poi riemerge.',
-    nav: { shop: 'Negozio', portfolio: 'Portfolio', gallery: 'Galleria', about: 'Chi sono', contact: 'Contatto' },
+    nav: { home: 'Home', shop: 'Negozio', portfolio: 'Portfolio', gallery: 'Galleria', about: 'Chi sono', contact: 'Contatto' },
     home: {
       tagline: 'Il colore non è scomparso. Si nasconde.',
       sub: 'Pittura, scultura, fotografia e gioielli di Marina Descalzi',

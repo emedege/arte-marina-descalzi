@@ -22,6 +22,7 @@ const ogImage = image ? `${site}${image}` : undefined;
 const current = Astro.url.pathname;
 
 const nav = [
+  { href: `/${lang}/`, label: tr.nav.home, exact: true },
   { href: `/${lang}/tienda/`, label: tr.nav.shop },
   { href: `/${lang}/portfolio/`, label: tr.nav.portfolio },
   { href: `/${lang}/galeria/`, label: tr.nav.gallery },
@@ -75,7 +76,7 @@ const jsonLd = {
         <a class="brand" href={`/${lang}/`}>Marina Descalzi</a>
         <button class="menu-btn" aria-expanded="false" aria-controls="nav" type="button">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
-          {nav.map((n) => <a href={n.href} aria-current={current.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
+          {nav.map((n) => <a href={n.href} aria-current={(n.exact ? current === n.href : current.startsWith(n.href)) ? 'page' : undefined}>{n.label}</a>)}
           <div class="lang" role="group" aria-label={tr.lang}>
             {locales.map((l) => (
               <a href={`/${l}/${path}`} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{langNames[l]}</a>
