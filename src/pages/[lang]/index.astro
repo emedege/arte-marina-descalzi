@@ -22,8 +22,11 @@ const tiles = [
 <Base lang={lang} title="Marina Descalzi" path="">
   <section class="hero" aria-label={tr.home.tagline}>
     <div class="hero-bg">
-      <video autoplay muted loop playsinline preload="metadata" poster="/videos/telas-poster.jpg" aria-hidden="true">
+      <video class="on" autoplay muted playsinline preload="auto" poster="/videos/telas-poster.jpg" aria-hidden="true">
         <source src="/videos/telas.mp4" type="video/mp4" />
+      </video>
+      <video muted playsinline preload="metadata" poster="/videos/pintura-poster.jpg" aria-hidden="true">
+        <source src="/videos/pintura.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="frame-stage" aria-hidden="true">
@@ -66,7 +69,18 @@ const tiles = [
   <script is:inline>
     (function () {
       var slides = document.querySelectorAll('.frame-stage .slide');
-      var video = document.querySelector('.hero-bg video');
+      var videos = document.querySelectorAll('.hero-bg video');
+      var vi = 0;
+      videos.forEach(function (v, k) {
+        v.addEventListener('ended', function () {
+          if (paused) return;
+          v.classList.remove('on');
+          vi = (k + 1) % videos.length;
+          videos[vi].currentTime = 0;
+          videos[vi].classList.add('on');
+          videos[vi].play().catch(function () {});
+        });
+      });
       var btn = document.querySelector('.hero-pause');
       var paused = false;
       var i = 0;
@@ -84,7 +98,7 @@ const tiles = [
           btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
           btn.setAttribute('aria-label', paused ? btn.getAttribute('data-play') : btn.getAttribute('data-pause'));
           btn.setAttribute('title', btn.getAttribute('aria-label'));
-          if (video) { if (paused) video.pause(); else video.play().catch(function () {}); }
+          if (paused) videos[vi].pause(); else videos[vi].play().catch(function () {});
         });
       }
     })();
