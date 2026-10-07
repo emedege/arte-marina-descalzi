@@ -75,6 +75,12 @@ const tiles = [
 
   <script is:inline>
     (function () {
+      // El logo camina de nuevo al tocarlo
+      var logo = document.querySelector('.logo-mark');
+      if (logo) logo.addEventListener('click', function () {
+        logo.classList.add('camina'); void logo.offsetWidth; logo.classList.remove('camina');
+        logo.style.animation = 'none'; void logo.offsetWidth; logo.style.animation = '';
+      });
       // Velo: cubre las imágenes de la portada y se levanta al bajar
       var root = document.documentElement;
       {
