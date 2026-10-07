@@ -3,7 +3,7 @@
 Documento de decisiones acordadas con la artista. Se actualiza a medida que avanza el proyecto.
 
 ## Concepto
-Artista visual (pintura, escultura, fotografía, joyería). Eje del trabajo: el color, lo ritual y lo procesual.
+Artista visual (pintura, escultura, fotografía; la joyería tiene su propia web aparte). Eje del trabajo: el color, lo ritual y lo procesual.
 Reivindica el color en un mundo de grises: obras veladas donde el color se esconde y acaba saliendo.
 La web debe transmitirlo: el color se revela (ratón en ordenador, scroll en móvil).
 
