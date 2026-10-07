@@ -2,8 +2,8 @@
   --bg: #f8f4ef;
   --ink: #34303a;
   --muted: #7b7580;
-  --rosa: #b77f8d;
-  --rosa-suave: #e3c4cb;
+  --rosa: #c47f88;
+  --rosa-suave: #ebc8c9;
   --turquesa: #2e7d70;
   --turquesa-suave: #bcd9cf;
   --line: #e4dcd5;
@@ -99,7 +99,7 @@ p { margin: 0 0 1em; }
 .card .reveal { aspect-ratio: 4 / 5; }
 .card h3 { font-size: 1.35rem; margin: 0.8rem 0 0.1rem; }
 .card .meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid var(--rosa); color: #8c5462; margin-left: 0.4rem; vertical-align: middle; }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid var(--rosa); color: #924f58; margin-left: 0.4rem; vertical-align: middle; }
 
 /* Inicio */
 .hero { position: relative; min-height: min(88svh, 52rem); display: grid; place-items: center; overflow: hidden; isolation: isolate; text-align: center; }
