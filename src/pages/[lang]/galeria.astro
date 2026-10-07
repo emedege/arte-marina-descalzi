@@ -38,7 +38,7 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
                     <video controls playsinline preload="metadata" poster={i.data.poster} loop muted>
                       <source src={i.data.video} type="video/mp4" />
                     </video>
-                    <figcaption>{titleOf(i.data)}</figcaption>
+                    {titleOf(i.data) && <figcaption>{titleOf(i.data)}</figcaption>}
                   </figure>
                 ) : (
                   <figure class="gal-item">
