@@ -7,7 +7,7 @@ interface Props {
   title: string;
   image: string;
   alt: string;
-  medidas: string;
+  medidas?: string;
   estado: 'disponible' | 'vendida' | 'no a la venta';
   categoria: string;
   loading?: 'lazy' | 'eager';
@@ -24,5 +24,5 @@ const tr = t(lang);
     {title}
     {estado === 'vendida' && <span class="badge">{tr.work.sold}</span>}
   </h3>
-  <p class="meta">{medidas}</p>
+  {medidas && <p class="meta">{medidas}</p>}
 </a>

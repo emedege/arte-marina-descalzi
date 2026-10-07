@@ -9,6 +9,6 @@ precio: 1200
 tecnica: "Técnica de ejemplo"
 anio: 2026
 serie: "Serie de ejemplo"
-orden: 1
+orden: 3
 placeholder: true
 ---

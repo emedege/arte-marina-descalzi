@@ -10,7 +10,7 @@ const obras = defineCollection({
     alt: z.string(),
     categoria: z.enum(['pintura', 'fotografia', 'collage', 'diseno']).default('pintura'),
     estado: z.enum(['disponible', 'vendida', 'no a la venta']),
-    medidas: z.string(),
+    medidas: z.string().optional(),
     precio: z.number().optional(),
     tecnica: z.string().optional(),
     anio: z.number().optional(),

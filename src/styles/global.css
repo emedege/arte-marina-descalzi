@@ -153,3 +153,15 @@ p { margin: 0 0 1em; }
 .filters { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; margin-bottom: 1.5rem; }
 .filters button { position: relative; z-index: 0; background: none; border: 0; cursor: pointer; font: inherit; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; color: var(--turquesa); padding: 0.6rem 0; }
 .card[hidden] { display: none; }
+
+/* Vídeo de portada y galería */
+.hero-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+@media (prefers-reduced-motion: reduce) { .hero-bg video { display: none; } }
+.video-card { margin: 0; }
+.video-card video { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--turquesa-suave); }
+.video-card figcaption { margin-top: 0.8rem; font-size: 0.9rem; color: var(--muted); }
+
+/* Quién soy */
+.about { display: grid; gap: clamp(1.5rem, 4vw, 4rem); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 800px) { .about { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); } }
+.about .reveal { aspect-ratio: 4 / 5; }

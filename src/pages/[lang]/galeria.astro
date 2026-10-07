@@ -15,6 +15,14 @@ const tr = t(lang);
     <p>{tr.pages.galIntro}</p>
   </div>
   <div class="wrap section">
-    <p>{tr.pages.galEmpty}</p>
+    <div class="grid" style="margin-top:0">
+      <figure class="video-card">
+        <video controls playsinline preload="metadata" poster="/videos/telas-poster.jpg" loop muted>
+          <source src="/videos/telas.mp4" type="video/mp4" />
+        </video>
+        <figcaption>{tr.pages.galVideo1}</figcaption>
+      </figure>
+    </div>
+    <p class="note" style="margin-top:2rem">{tr.pages.galEmpty}</p>
   </div>
 </Base>

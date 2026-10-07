@@ -9,11 +9,16 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 ---
 
-<Base lang={lang} title={tr.pages.aboutTitle} description={tr.siteDesc} path="quien-soy/">
+<Base lang={lang} title={tr.pages.aboutTitle} description={tr.siteDesc} path="quien-soy/" image="/img/marina-descalzi.webp">
   <div class="wrap page-head">
     <h1>{tr.pages.aboutTitle}</h1>
   </div>
-  <div class="wrap section">
-    <p style="max-width:40rem">{tr.pages.aboutText}</p>
+  <div class="wrap section about">
+    <div class="reveal">
+      <img src="/img/marina-descalzi.webp" alt={tr.pages.aboutAlt} width="1100" height="1375" fetchpriority="high" decoding="async" />
+    </div>
+    <div>
+      <p>{tr.pages.aboutText}</p>
+    </div>
   </div>
 </Base>

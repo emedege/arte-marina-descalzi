@@ -33,7 +33,7 @@ const jsonLd = {
 <Base
   lang={lang}
   title={d.title}
-  description={`${d.title}. ${d.medidas}. ${d.tecnica ?? ''}`.trim()}
+  description={[d.title, d.medidas, d.tecnica].filter(Boolean).join('. ')}
   path={`obra/${obra.id}/`}
   image={d.image}
   noindex={d.placeholder}
@@ -50,7 +50,7 @@ const jsonLd = {
         {estadoLabel}
       </p>
       <ul class="facts">
-        <li><span>{tr.work.size}</span><span>{d.medidas}</span></li>
+        {d.medidas && <li><span>{tr.work.size}</span><span>{d.medidas}</span></li>}
         {d.tecnica && <li><span>{tr.work.technique}</span><span>{d.tecnica}</span></li>}
         {d.anio && <li><span>{tr.work.year}</span><span>{d.anio}</span></li>}
         {d.precio && d.estado !== 'no a la venta' && <li><span>{tr.work.price}</span><span class="price">{fmt(d.precio)}</span></li>}
