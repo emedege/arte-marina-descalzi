@@ -45,7 +45,7 @@ Colección única **Obra** con campo `estado`: `disponible` | `vendida` | `no a 
 - Solicitud de dossier para galerías y coleccionistas.
 
 ## Diseño
-- Rosa y turquesa en tonos pastel o apagados.
+- Rosa viejo (#b77f8d) y turquesa oscuro (#357d7c), tonos apagados con identidad.
 - Tipografía fina y elegante.
 - Muy visual, imágenes grandes, mucho espacio.
 - Efecto del color: ratón (ordenador) / scroll (móvil). Respeta `prefers-reduced-motion`. Precio e información nunca dependen solo del hover.

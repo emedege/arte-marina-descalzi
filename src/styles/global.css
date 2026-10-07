@@ -2,10 +2,10 @@
   --bg: #f8f4ef;
   --ink: #34303a;
   --muted: #7b7580;
-  --rosa: #d8a4b2;
-  --rosa-suave: #ecd3d9;
-  --turquesa: #7fb3b0;
-  --turquesa-suave: #cfe3e1;
+  --rosa: #b77f8d;
+  --rosa-suave: #e3c4cb;
+  --turquesa: #357d7c;
+  --turquesa-suave: #bcd6d4;
   --line: #e4dcd5;
   --serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
   --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -76,7 +76,7 @@ p { margin: 0 0 1em; }
 .newsletter input[type='email'] { font: inherit; padding: 0.7rem 0.9rem; border: 1px solid var(--line); background: #fff; min-width: min(16rem, 100%); border-radius: 0; }
 .btn { display: inline-block; font: inherit; font-size: 0.95rem; letter-spacing: 0.06em; padding: 0.75rem 1.4rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: background 0.25s, color 0.25s; border-radius: 0; }
 .btn:hover { background: var(--ink); color: var(--bg); }
-.btn.solid { background: var(--turquesa); border-color: var(--turquesa); color: #1d2f2e; }
+.btn.solid { background: var(--turquesa); border-color: var(--turquesa); color: #fff; }
 .btn.solid:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
 
@@ -99,7 +99,7 @@ p { margin: 0 0 1em; }
 .card .reveal { aspect-ratio: 4 / 5; }
 .card h3 { font-size: 1.35rem; margin: 0.8rem 0 0.1rem; }
 .card .meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid var(--rosa); color: #8a5565; margin-left: 0.4rem; vertical-align: middle; }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid var(--rosa); color: #8c5462; margin-left: 0.4rem; vertical-align: middle; }
 
 /* Inicio */
 .hero { position: relative; min-height: min(88svh, 52rem); display: grid; place-items: center; overflow: hidden; isolation: isolate; text-align: center; }
