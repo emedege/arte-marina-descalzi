@@ -48,20 +48,20 @@ p { margin: 0 0 1em; }
 .skip:focus { left: 0; }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--rosa); border-bottom: 1px solid var(--rosa-fuerte); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
 .brand { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 0.04em; text-decoration: none; }
 .nav { display: flex; align-items: center; gap: clamp(0.9rem, 2.4vw, 2rem); }
 .nav a { text-decoration: none; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; }
-.nav a[aria-current='page'] { border-bottom: 1px solid var(--rosa-fuerte); }
+.nav a[aria-current="page"] { border-bottom: 1px solid var(--ink); }
 .lang { display: flex; gap: 0.25rem; font-size: 0.85rem; }
-.lang a { padding: 0.5rem 0.4rem; text-decoration: none; color: var(--muted); }
+.lang a { padding: 0.5rem 0.4rem; text-decoration: none; color: #5b5560; }
 .lang a[aria-current='true'] { color: var(--ink); border-bottom: 1px solid var(--turquesa); }
 .menu-btn { display: none; background: none; border: 0; font: inherit; padding: 0.75rem; cursor: pointer; color: inherit; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
 
 @media (max-width: 860px) {
   .menu-btn { display: block; }
-  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; padding: 1rem var(--gutter) 1.5rem; display: none; }
+  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--rosa); border-bottom: 1px solid var(--rosa-fuerte); flex-direction: column; align-items: flex-start; padding: 1rem var(--gutter) 1.5rem; display: none; }
   .nav.open { display: flex; }
   .nav a { font-size: 1.1rem; padding: 0.7rem 0; }
 }
