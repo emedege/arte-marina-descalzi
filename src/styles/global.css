@@ -51,7 +51,7 @@ p { margin: 0 0 1em; }
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--rosa); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
-.brand { font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--turquesa); }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--sans); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--turquesa); }
 .nav { display: flex; align-items: center; gap: clamp(0.9rem, 2.4vw, 2rem); }
 .nav a { position: relative; z-index: 0; text-decoration: none; color: var(--turquesa); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 0; }
 /* Pincelada: al pasar o estar en la página, el enlace se "pinta" de turquesa clarito como un trazo de pintura */
@@ -171,3 +171,11 @@ p { margin: 0 0 1em; }
 .quote p { margin: 0; font-weight: 300; text-transform: none; letter-spacing: 0.01em; line-height: 1.2; font-size: clamp(1.9rem, 5.5vw, 4rem); color: #a9a4ad; transition: color 2.2s ease; }
 .quote.in p { color: var(--turquesa); }
 @media (prefers-reduced-motion: reduce) { .quote p { color: var(--turquesa); transition: none; } }
+
+.brand-mark { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--bg); flex: none; }
+.brand-mark img { height: 2.3rem; width: auto; }
+@media (max-width: 420px) {
+  .brand { font-size: 0.95rem; letter-spacing: 0.08em; gap: 0.5rem; }
+  .brand-mark { width: 2.7rem; height: 2.7rem; }
+  .brand-mark img { height: 2rem; }
+}

@@ -76,7 +76,10 @@ const jsonLd = {
     <a class="skip" href="#main">Saltar al contenido</a>
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href={`/${lang}/`}>Marina Descalzi</a>
+        <a class="brand" href={`/${lang}/`}>
+          <span class="brand-mark"><img src="/img/logo-mdg.webp" alt="" width="322" height="400" /></span>
+          <span>Marina Descalzi</span>
+        </a>
         <button class="menu-btn" aria-expanded="false" aria-controls="nav" type="button">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
           {nav.map((n) => <a href={n.href} aria-current={(n.exact ? current === n.href : current.startsWith(n.href)) ? 'page' : undefined}>{n.label}</a>)}
