@@ -194,3 +194,7 @@ p { margin: 0 0 1em; }
 .wa-float:hover { background: #1e5c48; transform: scale(1.08); }
 .wa-float:focus-visible { outline: 3px solid var(--rosa); outline-offset: 3px; }
 @media (max-width: 600px) { .wa-float { width: 3.3rem; height: 3.3rem; } }
+
+/* Marco de obras sobre el vídeo */
+.video-box .frame-stage { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 80%; max-width: 70%; z-index: 1; }
+@media (max-width: 600px) { .video-box { aspect-ratio: 4 / 5; } .video-box .frame-stage { height: 74%; } }
