@@ -129,7 +129,7 @@ p { margin: 0 0 1em; }
 .hero-pause[aria-pressed='true'] .i-pause { display: none; }
 .hero-pause[aria-pressed='true'] .i-play { display: block; }
 .frame-stage { position: relative; height: min(72%, 36rem); aspect-ratio: 4 / 5; max-width: 82vw; padding: clamp(0.5rem, 1.4vw, 0.9rem); background: #fff; box-shadow: 0 1.4rem 3rem rgba(52, 48, 58, 0.22); }
-.frame-stage .slide { position: absolute; inset: clamp(0.5rem, 1.4vw, 0.9rem); opacity: 0; transition: opacity 1.3s ease; }
+.frame-stage .slide { position: absolute; inset: clamp(0.5rem, 1.4vw, 0.9rem); opacity: 0; transition: opacity 0.9s ease; }
 .frame-stage .slide.on { opacity: 1; }
 .frame-stage .slide img { width: 100%; height: 100%; object-fit: cover; }
 .intro { text-align: center; padding-block: clamp(2.5rem, 6vw, 5rem); }

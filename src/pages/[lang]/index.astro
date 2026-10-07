@@ -10,7 +10,7 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 
 const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
-const slides = obras.slice(0, 6);
+const slides = obras.filter((o) => o.data.categoria === 'fotografia').slice(0, 8);
 const pick = (i: number) => obras[i]?.data;
 const tiles = [
   { href: 'tienda', title: tr.home.shopT, desc: tr.home.shopD, work: pick(0) },
@@ -85,7 +85,7 @@ const tiles = [
           slides[si].classList.remove('on');
           si = (si + 1) % slides.length;
           slides[si].classList.add('on');
-        }, 4500);
+        }, 3000);
       }
 
       // Vídeos: solo se reproducen cuando la caja está a la vista, y se alternan al terminar
