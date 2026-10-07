@@ -140,6 +140,8 @@ p { margin: 0 0 1em; }
 .triptych { display: grid; gap: clamp(1rem, 2.5vw, 2rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
 .triptych a { text-decoration: none; }
 .triptych .reveal { aspect-ratio: 3 / 4; margin-bottom: 0.9rem; }
+.triptych.penta .reveal { aspect-ratio: 1 / 1; clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); background: none; }
+.triptych.penta h2, .triptych.penta p { text-align: center; }
 .triptych h2 { margin-bottom: 0.1em; }
 .triptych p { color: var(--muted); margin: 0; }
 
