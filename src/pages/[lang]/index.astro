@@ -75,6 +75,33 @@ const tiles = [
 
   <script is:inline>
     (function () {
+      // Frases letra a letra
+      function tipea(el, delay) {
+        var txt = el.textContent.trim();
+        el.setAttribute('aria-label', txt);
+        el.textContent = '';
+        var i = 0;
+        txt.split(' ').forEach(function (word, k) {
+          var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
+          word.split('').forEach(function (ch) {
+            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; c.style.setProperty('--i', i++); w.appendChild(c);
+          });
+          el.appendChild(w);
+          if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); i++; }
+        });
+        el.classList.add('tipea');
+        return function () { setTimeout(function () { el.classList.add('go'); }, delay || 0); };
+      }
+      var tag = document.querySelector('.intro h1');
+      if (tag) { var startTag = tipea(tag, 2200); startTag(); }
+      var q = document.querySelector('.quote p');
+      if (q) {
+        var startQ = tipea(q, 0);
+        if ('IntersectionObserver' in window) {
+          var qio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { startQ(); qio.disconnect(); } }, { threshold: 0.6 });
+          qio.observe(q);
+        } else { startQ(); }
+      }
       // El logo camina de nuevo al tocarlo
       var logo = document.querySelector('.logo-mark');
       if (logo) logo.addEventListener('click', function () {

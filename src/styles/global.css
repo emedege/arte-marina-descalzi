@@ -237,3 +237,8 @@ p { margin: 0 0 1em; }
 .logo-mark.camina { animation: none; }
 .logo-mark.camina-otra { animation: avanza 3.6s ease-out both, paso 0.9s ease-in-out 4; }
 .brand:hover .brand-mark img, .brand:focus-visible .brand-mark img { transform-origin: 50% 90%; animation: paso 0.6s ease-in-out 2; }
+
+/* Frases que aparecen letra a letra */
+.tipea .w { display: inline-block; white-space: nowrap; }
+.tipea .c { opacity: 0; transition: opacity 0.35s ease; transition-delay: calc(var(--i) * 55ms); }
+.tipea.go .c { opacity: 1; }
