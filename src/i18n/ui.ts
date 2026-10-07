@@ -8,11 +8,11 @@ export const INSTAGRAM = 'https://www.instagram.com/marinadescalzig/';
 export const ui = {
   es: {
     htmlLang: 'es-ES',
-    siteDesc: 'Arte visual de Marina Descalzi: pintura, escultura, fotografía y collage. El color que se esconde y vuelve a salir.',
+    siteDesc: 'Arte visual de Marina Descalzi: pintura, fotografía, collage y diseño. El color que se esconde y vuelve a salir.',
     nav: { home: 'Inicio', shop: 'Tienda', portfolio: 'Portfolio', gallery: 'Galería', about: 'Quién soy', contact: 'Contacto' },
     home: {
       tagline: 'El color no ha desaparecido. Se esconde.',
-      sub: 'Pintura, escultura, fotografía y collage de Marina Descalzi',
+      sub: 'Pintura, fotografía, collage y diseño de Marina Descalzi',
       cta: 'Ver la tienda',
       shopT: 'Tienda', shopD: 'Piezas únicas, con certificado de autenticidad.',
       portT: 'Portfolio', portD: 'Lo que he hecho, serie a serie.',
@@ -37,15 +37,16 @@ export const ui = {
     },
     news: { title: 'Cartas desde el taller', text: 'Novedades, procesos y obra nueva, sin prisa.', email: 'Tu email', button: 'Quiero recibirlas' },
     footer: { rights: 'Todos los derechos reservados', legal: 'Aviso legal', privacy: 'Privacidad', cookies: 'Cookies', terms: 'Condiciones de venta' },
+    filters: { label: 'Filtrar por tipo de obra', all: 'Todas', pintura: 'Pintura', fotografia: 'Fotografía', collage: 'Collage', diseno: 'Diseño' },
     lang: 'Idioma',
   },
   en: {
     htmlLang: 'en',
-    siteDesc: 'Visual art by Marina Descalzi: painting, sculpture, photography and collage. Colour that hides, then comes back.',
+    siteDesc: 'Visual art by Marina Descalzi: painting, photography, collage and design. Colour that hides, then comes back.',
     nav: { home: 'Home', shop: 'Shop', portfolio: 'Portfolio', gallery: 'Gallery', about: 'About', contact: 'Contact' },
     home: {
       tagline: 'Colour has not disappeared. It hides.',
-      sub: 'Painting, sculpture, photography and collage by Marina Descalzi',
+      sub: 'Painting, photography, collage and design by Marina Descalzi',
       cta: 'Visit the shop',
       shopT: 'Shop', shopD: 'Unique pieces, with certificate of authenticity.',
       portT: 'Portfolio', portD: 'What I have made, series by series.',
@@ -70,15 +71,16 @@ export const ui = {
     },
     news: { title: 'Letters from the studio', text: 'News, processes and new work, unhurried.', email: 'Your email', button: 'I want to receive them' },
     footer: { rights: 'All rights reserved', legal: 'Legal notice', privacy: 'Privacy', cookies: 'Cookies', terms: 'Terms of sale' },
+    filters: { label: 'Filter by type of work', all: 'All', pintura: 'Painting', fotografia: 'Photography', collage: 'Collage', diseno: 'Design' },
     lang: 'Language',
   },
   it: {
     htmlLang: 'it-IT',
-    siteDesc: 'Arte visiva di Marina Descalzi: pittura, scultura, fotografia e collage. Il colore che si nasconde e poi riemerge.',
+    siteDesc: 'Arte visiva di Marina Descalzi: pittura, fotografia, collage e design. Il colore che si nasconde e poi riemerge.',
     nav: { home: 'Home', shop: 'Negozio', portfolio: 'Portfolio', gallery: 'Galleria', about: 'Chi sono', contact: 'Contatto' },
     home: {
       tagline: 'Il colore non è scomparso. Si nasconde.',
-      sub: 'Pittura, scultura, fotografia e collage di Marina Descalzi',
+      sub: 'Pittura, fotografia, collage e design di Marina Descalzi',
       cta: 'Vai al negozio',
       shopT: 'Negozio', shopD: 'Pezzi unici, con certificato di autenticità.',
       portT: 'Portfolio', portD: 'Ciò che ho fatto, serie dopo serie.',
@@ -103,6 +105,7 @@ export const ui = {
     },
     news: { title: 'Lettere dallo studio', text: 'Novità, processi e nuove opere, senza fretta.', email: 'La tua email', button: 'Voglio riceverle' },
     footer: { rights: 'Tutti i diritti riservati', legal: 'Note legali', privacy: 'Privacy', cookies: 'Cookie', terms: 'Condizioni di vendita' },
+    filters: { label: 'Filtra per tipo di opera', all: 'Tutte', pintura: 'Pittura', fotografia: 'Fotografia', collage: 'Collage', diseno: 'Design' },
     lang: 'Lingua',
   },
 } as const;

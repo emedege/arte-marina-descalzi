@@ -1,0 +1,28 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; cats: string[] }
+const { lang, cats } = Astro.props;
+const f = t(lang).filters as Record<string, string>;
+---
+
+{cats.length > 1 && (
+  <div class="filters" role="group" aria-label={f.label}>
+    <button type="button" data-filter="all" aria-pressed="true">{f.all}</button>
+    {cats.map((c) => <button type="button" data-filter={c} aria-pressed="false">{f[c]}</button>)}
+  </div>
+)}
+
+<script is:inline>
+  (function () {
+    var bar = document.querySelector('.filters');
+    if (!bar) return;
+    var cards = document.querySelectorAll('.grid [data-cat]');
+    bar.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-filter]');
+      if (!b) return;
+      var f = b.getAttribute('data-filter');
+      bar.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+    });
+  })();
+</script>

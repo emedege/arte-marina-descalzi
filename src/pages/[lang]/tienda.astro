@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import WorkCard from '../../components/WorkCard.astro';
+import Filters from '../../components/Filters.astro';
 import { getCollection } from 'astro:content';
 import { locales, t, type Lang } from '../../i18n/ui';
 
@@ -12,6 +13,8 @@ const tr = t(lang);
 const obras = (await getCollection('obras'))
   .filter((o) => o.data.estado !== 'no a la venta')
   .sort((a, b) => a.data.orden - b.data.orden);
+const order = ['pintura', 'fotografia', 'collage', 'diseno'];
+const cats = order.filter((c) => obras.some((o) => o.data.categoria === c));
 ---
 
 <Base lang={lang} title={tr.pages.shopTitle} description={tr.pages.shopIntro} path="tienda/">
@@ -20,9 +23,10 @@ const obras = (await getCollection('obras'))
     <p>{tr.pages.shopIntro}</p>
   </div>
   <div class="wrap section">
+    <Filters lang={lang} cats={cats} />
     <div class="grid" style="margin-top:0">
       {obras.map((o, i) => (
-        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} loading={i < 3 ? 'eager' : 'lazy'} />
+        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} categoria={o.data.categoria} loading={i < 3 ? 'eager' : 'lazy'} />
       ))}
     </div>
   </div>
