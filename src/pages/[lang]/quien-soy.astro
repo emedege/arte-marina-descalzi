@@ -18,7 +18,7 @@ const tr = t(lang);
       <img src="/img/marina-descalzi.webp" alt={tr.pages.aboutAlt} width="1100" height="1375" fetchpriority="high" decoding="async" />
     </div>
     <div>
-      <p>{tr.pages.aboutText}</p>
+      {tr.pages.aboutText.map((p) => <p>{p}</p>)}
     </div>
   </div>
 </Base>
