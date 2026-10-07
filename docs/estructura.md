@@ -34,7 +34,7 @@ Colección única **Obra** con campo `estado`: `disponible` | `vendida` | `no a 
 - Todas las piezas son únicas. Se envían con certificado de autenticidad.
 
 ## Compra
-- Pago por PayPal en la web.
+- Pago por Bizum o transferencia bancaria (datos por WhatsApp); sin PayPal.
 - Alternativa: contacto por WhatsApp (botón en cada obra).
 - Piezas únicas: al venderse se marcan "Vendida" manualmente (automatizable más adelante).
 - Envíos: Península y Baleares al inicio. Tarifas fijas por tamaño; "consultar" para obras muy grandes. Pendiente de definir con las medidas de las 6 obras. Embala y envía la artista.
@@ -54,7 +54,7 @@ Colección única **Obra** con campo `estado`: `disponible` | `vendida` | `no a 
 ## Técnica
 - Web a medida (opción A), alojada en hosting estático, con panel sencillo para que la artista suba obras.
 - Dominio: marinadescalzi.com (pendiente de registrar).
-- Repositorio público: las claves de PayPal y otros secretos nunca se suben (variables de entorno).
+- Repositorio público: los secretos y datos bancarios nunca se suben (variables de entorno).
 - Objetivos: SEO completo, móvil y escritorio optimizados, buena usabilidad y accesibilidad.
 
 ## Pendiente
