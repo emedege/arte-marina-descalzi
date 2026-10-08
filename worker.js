@@ -4,21 +4,32 @@ const PRODUCCION = 'marinadescalzi.es';
 const redirige = (destino, codigo = 301) =>
   new Response(null, { status: codigo, headers: { Location: destino, 'Cache-Control': 'public, max-age=3600' } });
 
+// Devuelve la URL canónica si la pedida es distinta (en un solo salto), o null si ya es la correcta.
+// https://marinadescalzi.es/es/...  (sin www, con https, con barra final, sin index.html)
+export function canonica(url, dominioActivo) {
+  let host = url.hostname;
+  let proto = url.protocol;
+  if (host === PRODUCCION || host === `www.${PRODUCCION}` || (dominioActivo && host.endsWith('.workers.dev'))) {
+    host = PRODUCCION;
+    proto = 'https:';
+  }
+  let ruta = url.pathname.replace(/\/{2,}/g, '/');
+  if (ruta.endsWith('/index.html')) ruta = ruta.slice(0, -'index.html'.length);
+  if (ruta === '/') ruta = '/es/';
+  else if (!ruta.endsWith('/') && !ruta.split('/').pop().includes('.')) ruta += '/';
+  const puerto = host === url.hostname && url.port ? `:${url.port}` : '';
+  const destino = `${proto}//${host}${puerto}${ruta}${url.search}`;
+  return destino === `${url.protocol}//${url.host}${url.pathname}${url.search}` ? null : destino;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const host = url.hostname;
 
-    // 1) Todas las variantes apuntan a https://marinadescalzi.es
-    if (host === `www.${PRODUCCION}`) return redirige(`https://${PRODUCCION}${url.pathname}${url.search}`);
-    if (host === PRODUCCION && url.protocol === 'http:') return redirige(`https://${PRODUCCION}${url.pathname}${url.search}`);
-
-    // 2) La raíz va al idioma por defecto; /index.html y similares, a su ruta limpia
-    if (url.pathname === '/') return redirige(`${url.origin}/es/${url.search}`);
-    if (url.pathname.endsWith('/index.html')) return redirige(`${url.origin}${url.pathname.slice(0, -'index.html'.length)}${url.search}`);
-
-    // Barra final siempre: /es/galeria -> /es/galeria/ (301)
-    if (!url.pathname.endsWith('/') && !url.pathname.split('/').pop().includes('.')) return redirige(`${url.origin}${url.pathname}/${url.search}`);
+    // 1) Una sola redirección (sin cadenas) hacia la dirección canónica
+    const destino = canonica(url, env.DOMINIO_ACTIVO === 'si');
+    if (destino !== null) return redirige(destino);
 
     let res;
     if (url.pathname.startsWith('/videos/')) {
