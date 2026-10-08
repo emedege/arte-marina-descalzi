@@ -53,7 +53,7 @@ Colección única **Obra** con campo `estado`: `disponible` | `vendida` | `no a 
 
 ## Técnica
 - Web a medida (opción A), alojada en hosting estático, con panel sencillo para que la artista suba obras.
-- Dominio: marinadescalzi.com (pendiente de registrar).
+- Dominio: marinadescalzi.es (contratado en Hostinger; web y DNS en Cloudflare).
 - Repositorio público: los secretos y datos bancarios nunca se suben (variables de entorno).
 - Objetivos: SEO completo, móvil y escritorio optimizados, buena usabilidad y accesibilidad.
 

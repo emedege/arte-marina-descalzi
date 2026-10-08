@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marinadescalzi.com/sitemap-index.xml
+Sitemap: https://marinadescalzi.es/sitemap-index.xml

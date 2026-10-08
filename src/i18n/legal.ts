@@ -4,7 +4,7 @@ export const TITULAR = {
   nif: '47296050T',
   domicilio: 'Calle Picos de Urbión, 1, Pozuelo de Alarcón (Madrid)',
   email: 'arte@marinadescalzi.es',
-  web: 'marinadescalzi.com',
+  web: 'marinadescalzi.es',
   actualizado: 'octubre de 2026',
 };
 

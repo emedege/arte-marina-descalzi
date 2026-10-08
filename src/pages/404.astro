@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n/ui';
+const tr = t('es');
+---
+
+<Base lang="es" title="Página no encontrada" path="" noindex>
+  <div class="wrap page-head">
+    <h1>Página no encontrada</h1>
+    <p>Esta dirección no existe. Puedes volver al inicio o mirar la obra disponible.</p>
+  </div>
+  <div class="wrap section">
+    <div class="actions" style="margin-top:0">
+      <a class="btn solid" href="/es/">{tr.nav.home}</a>
+      <a class="btn" href="/es/tienda/">{tr.nav.shop}</a>
+    </div>
+  </div>
+</Base>
