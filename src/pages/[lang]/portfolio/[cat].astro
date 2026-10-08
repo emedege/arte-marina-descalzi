@@ -21,7 +21,7 @@ const obras = (await getCollection('obras'))
 <Base lang={lang} title={`${f[cat]} · ${tr.pages.portTitle}`} description={tr.pages.portIntro} path={`portfolio/${cat}/`}>
   <div class="wrap page-head">
     <p class="note" style="margin:0 0 0.6rem"><a href={`/${lang}/portfolio/`}>← {tr.pages.portTitle}</a></p>
-    <h1>{f[cat]}</h1>
+    <div class="titulo-firma"><h1>{f[cat]}</h1> <canvas class="firma-pagina firma-titulo" data-al-ver aria-hidden="true"></canvas></div>
   </div>
   <div class="wrap section">
     <div class="grid" style="margin-top:0">

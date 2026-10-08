@@ -74,7 +74,7 @@ const jsonLd = {
   </head>
   <body>
     <a class="skip" href="#main">Saltar al contenido</a>
-    <header class="site-header">
+    <header class="site-header" data-sin-firma={path.startsWith('portfolio') || undefined}>
       <div class="wrap">
         <a class="brand" href={`/${lang}/`}>
           <span class="brand-mark" aria-hidden="true">

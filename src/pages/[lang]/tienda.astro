@@ -30,5 +30,6 @@ const cats = order.filter((c) => obras.some((o) => o.data.categoria === c));
         <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} categoria={o.data.categoria} loading={i < 3 ? 'eager' : 'lazy'} />
       ))}
     </div>
+    <canvas class="firma-pagina firma-centro" data-al-ver aria-hidden="true"></canvas>
   </div>
 </Base>
