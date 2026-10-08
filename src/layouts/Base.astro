@@ -9,16 +9,17 @@ interface Props {
   /** Ruta sin idioma, p. ej. "tienda/" ("" para inicio) */
   path: string;
   image?: string;
+  alt?: string;
   noindex?: boolean;
 }
 
-const { lang, title, description, path, image, noindex = false } = Astro.props;
+const { lang, title, description, path, image, alt, noindex = false } = Astro.props;
 const tr = t(lang);
 const site = Astro.site!.toString().replace(/\/$/, '');
 const desc = description ?? tr.siteDesc;
 const canonical = `${site}/${lang}/${path}`;
 const fullTitle = title === 'Marina Descalzi' ? 'Marina Descalzi — Arte visual' : `${title} · Marina Descalzi`;
-const ogImage = image ? `${site}${image}` : undefined;
+const ogImage = `${site}${image ?? '/img/marina-descalzi.webp'}`;
 const current = Astro.url.pathname;
 
 const nav = [
@@ -32,14 +33,28 @@ const nav = [
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Marina Descalzi',
-  alternateName: 'Marina Descalzi Guercio',
-  jobTitle: 'Visual artist',
-  birthDate: '1990',
-  birthPlace: 'Madrid, Spain',
-  url: site,
-  sameAs: [INSTAGRAM],
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site}/#artista`,
+      name: 'Marina Descalzi',
+      alternateName: 'Marina Descalzi Guercio',
+      jobTitle: 'Visual artist',
+      birthDate: '1990',
+      birthPlace: 'Madrid, Spain',
+      url: site,
+      image: `${site}/img/marina-descalzi.webp`,
+      sameAs: [INSTAGRAM],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#web`,
+      url: site,
+      name: 'Marina Descalzi',
+      inLanguage: locales.map((l) => t(l).htmlLang),
+      publisher: { '@id': `${site}/#artista` },
+    },
+  ],
 };
 ---
 
@@ -60,8 +75,13 @@ const jsonLd = {
     <meta property="og:description" content={desc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={tr.htmlLang.replace('-', '_')} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={ogImage} />
+    {alt && <meta property="og:image:alt" content={alt} />}
+    {locales.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={t(l).htmlLang.replace('-', '_')} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#ecc4c7" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="preload" href="/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin />
