@@ -17,7 +17,7 @@
       for (var i = 0; i < W * H; i++) od[i * 4 + 3] = 0;
       ctx.putImageData(out, 0, 0);
       box.classList.add('pintando');
-      var DUR = 2100, SOFT = 0.07;
+      var DUR = 2500, SOFT = 0.24;
       // Ruido de cerdas: el borde del pincel avanza irregular, con vetas
       var nz = new Float32Array(W * H);
       (function () {
@@ -36,10 +36,10 @@
         var t0 = null;
         function frame(now) {
           if (t0 === null) t0 = now;
-          var p = Math.min(1, (now - t0) / DUR);
+          var p = Math.min(1, (now - t0) / DUR); p = p * p * (3 - 2 * p);
           var edge = p * (1.06 + SOFT);
           for (var k = 0; k < W * H; k++) {
-            var tt = tm[k * 4] / 254 + nz[k] * 0.06;
+            var tt = tm[k * 4] / 254 + nz[k] * 0.035;
             var a = tm[k * 4] === 255 ? 0 : Math.min(1, Math.max(0, (edge - tt) / SOFT));
             od[k * 4 + 3] = src[k * 4 + 3] * a;
           }

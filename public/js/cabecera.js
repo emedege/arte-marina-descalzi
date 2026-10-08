@@ -2,7 +2,7 @@
    También hay firmas sueltas por las páginas (canvas.firma-pagina) que se escriben al verlas. */
 (function () {
   var header = document.querySelector('.site-header');
-  var W = 640, H = 281, COL = [30, 92, 72];
+  var W = 640, H = 281, COL = [52, 128, 102];
   var src = null, tm = null, esperando = [];
   var firmas = document.querySelectorAll('canvas.firma, canvas.firma-pagina');
   if (!firmas.length && !header) return;
