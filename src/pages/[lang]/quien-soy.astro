@@ -27,7 +27,7 @@ const tr = t(lang);
           const [antes, despues] = p.split(nombre);
           return (
             <>
-              <p class="about-name">{antes}<strong>{nombre}</strong><canvas class="firma-pagina firma-nombre" data-al-ver aria-hidden="true"></canvas></p>
+              <p class="about-name">{antes}<strong>{nombre}</strong><canvas class="firma-pagina firma-nombre" data-tras=".firma-foto" data-al-ver aria-hidden="true"></canvas></p>
               <p>{despues.trim()}</p>
             </>
           );

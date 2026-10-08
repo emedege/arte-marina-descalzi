@@ -9,6 +9,7 @@
 
   function pinta(cv, dur) {
     if (cv._raf) cancelAnimationFrame(cv._raf);
+    cv._inicio = true;
     cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d'), out = ctx.createImageData(W, H), od = out.data, i;
     var col = cv.getAttribute('data-color') ? cv.getAttribute('data-color').split(',').map(Number) : COL;
@@ -53,7 +54,17 @@
   var sueltas = document.querySelectorAll('canvas.firma-pagina');
   if (sueltas.length) {
     var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); cuando(function () { pinta(e.target, 1800); }); } });
+      es.forEach(function (e) { if (e.isIntersecting) {
+          io.unobserve(e.target);
+          var cv = e.target, tras = cv.getAttribute('data-tras');
+          cuando(function () {
+            if (!tras) { pinta(cv, 1800); return; }
+            // Se escribe 1 segundo después de que empiece la firma indicada
+            var otra = document.querySelector(tras), espera = setInterval(function () {
+              if (!otra || otra._inicio) { clearInterval(espera); setTimeout(function () { pinta(cv, 1500); }, 1000); }
+            }, 80);
+          });
+        } });
     }, { threshold: 0.6 }) : null;
     sueltas.forEach(function (cv) { if (io) io.observe(cv); else cuando(function () { pinta(cv, 1800); }); });
   }
