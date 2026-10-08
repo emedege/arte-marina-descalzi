@@ -254,4 +254,4 @@ p { margin: 0 0 1em; }
 .contact-grid { display: grid; gap: 2rem; align-items: center; }
 .contact-grid .actions { align-self: start; }
 .logo-contacto { height: clamp(14rem, 32vw, 24rem); width: auto; justify-self: center; }
-@media (min-width: 800px) { .contact-grid { grid-template-columns: minmax(0, 1fr) auto; } .logo-contacto { justify-self: end; margin-right: clamp(0rem, 4vw, 4rem); } }
+@media (min-width: 800px) { .contact-grid { grid-template-columns: minmax(0, 1fr) auto; align-items: start; } .logo-contacto { margin-top: -14.2rem; justify-self: end; margin-right: clamp(0rem, 4vw, 4rem); } }
