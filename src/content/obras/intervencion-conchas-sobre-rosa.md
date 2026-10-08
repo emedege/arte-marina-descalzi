@@ -1,5 +1,5 @@
 ---
-title: "Intervención IV"
+title: "Intervención III"
 image: /obras/intervencion-conchas-sobre-rosa.webp
 alt: "Tres composiciones de conchas y materiales secos sobre fondo rosa"
 categoria: intervencion

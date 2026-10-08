@@ -1,5 +1,5 @@
 ---
-title: "Intervención V"
+title: "Intervención IV"
 image: /obras/intervencion-hilos-blancos.webp
 alt: "Hilos blancos y rosados tensados sobre una superficie"
 categoria: intervencion
