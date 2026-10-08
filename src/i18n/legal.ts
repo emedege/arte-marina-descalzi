@@ -46,8 +46,6 @@ export const textos: Record<string, Seccion[]> = {
       'No cedemos tus datos a terceros salvo obligación legal. Pueden acceder a ellos proveedores que prestan servicios a esta web, como el alojamiento, el servicio de envío de newsletter, WhatsApp (Meta), mensajería y gestoría, solo para ese servicio y con las garantías que exige la normativa.'] },
     { h: 'Tus derechos', p: [
       `Puedes solicitar el acceso, rectificación, supresión, oposición, limitación y portabilidad de tus datos escribiendo a ${mail}. Si consideras que no se han tratado correctamente, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).`] },
-    { h: 'Tipografías', p: [
-      'Esta web carga la tipografía desde los servidores de Google Fonts, por lo que Google puede recibir tu dirección IP al visitar las páginas.'] },
   ],
   cookies: [
     { h: 'Qué son las cookies', p: [
