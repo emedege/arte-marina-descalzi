@@ -387,3 +387,11 @@ p { margin: 0 0 1em; }
   .site-footer .links a { font-size: 0.68rem; letter-spacing: 0.06em; }
   .site-footer .legal, .site-footer small, .site-footer p { font-size: 0.6rem; letter-spacing: 0.04em; line-height: 1.5; margin: 0; }
 }
+
+/* Móvil: botones más pequeños */
+@media (max-width: 600px) {
+  .btn { font-size: 0.68rem; padding: 0.55rem 1rem; letter-spacing: 0.05em; }
+  .actions { gap: 0.5rem; }
+  .menu-btn { font-size: 0.78rem; }
+  .filters button { font-size: 0.72rem; }
+}
