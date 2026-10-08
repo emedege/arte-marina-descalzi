@@ -375,3 +375,7 @@ p { margin: 0 0 1em; }
   .newsletter input[type='email'] { font-size: 0.72rem; padding: 0.45rem 0.6rem; min-width: 0; flex: 1 1 8rem; }
   .newsletter .btn { font-size: 0.65rem; padding: 0.5rem 0.9rem; letter-spacing: 0.05em; }
 }
+
+/* WhatsApp: turquesa medio */
+.wa-float { background: #6fb899; color: #123a2e; }
+.wa-float:hover { background: #58a585; color: #0e2e24; }
