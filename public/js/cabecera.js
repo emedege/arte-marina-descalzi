@@ -59,9 +59,9 @@
           var cv = e.target, tras = cv.getAttribute('data-tras');
           cuando(function () {
             if (!tras) { pinta(cv, 1800); return; }
-            // Se escribe 1 segundo después de que empiece la firma indicada
+            // Se escribe unos segundos después de que empiece la firma indicada
             var otra = document.querySelector(tras), espera = setInterval(function () {
-              if (!otra || otra._inicio) { clearInterval(espera); setTimeout(function () { pinta(cv, 1500); }, 1000); }
+              if (!otra || otra._inicio) { clearInterval(espera); setTimeout(function () { pinta(cv, 1800); }, +cv.getAttribute('data-retraso') || 1000); }
             }, 80);
           });
         } });

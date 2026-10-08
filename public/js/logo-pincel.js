@@ -53,5 +53,5 @@
         io.observe(box);
       } else { start(); }
     });
-  }).catch(function () {});
+  }).catch(function () { boxes.forEach(function (b) { b.classList.add('pintado'); }); });
 })();
