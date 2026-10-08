@@ -26,7 +26,7 @@ const obras = (await getCollection('obras'))
   <div class="wrap section">
     <div class="grid" style="margin-top:0">
       {obras.map((o, i) => (
-        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} categoria={o.data.categoria} loading={i < 3 ? 'eager' : 'lazy'} />
+        <WorkCard lang={lang} slug={o.id} title={o.data.title} image={o.data.image} alt={o.data.alt} medidas={o.data.medidas} estado={o.data.estado} categoria={o.data.categoria} formato={o.data.formato} ajuste={o.data.ajuste} encuadre={o.data.encuadre} loading={i < 3 ? 'eager' : 'lazy'} />
       ))}
     </div>
   </div>

@@ -11,14 +11,17 @@ interface Props {
   estado: 'disponible' | 'vendida' | 'no a la venta';
   categoria: string;
   loading?: 'lazy' | 'eager';
+  formato?: 'normal' | 'alargada';
+  ajuste?: 'cubrir' | 'entera';
+  encuadre?: string;
 }
-const { lang, slug, title, image, alt, medidas, estado, categoria, loading = 'lazy' } = Astro.props;
+const { lang, slug, title, image, alt, medidas, estado, categoria, loading = 'lazy', formato = 'normal', ajuste = 'cubrir', encuadre } = Astro.props;
 const tr = t(lang);
 ---
 
-<a class="card" data-cat={categoria} href={`/${lang}/obra/${slug}/`}>
-  <div class={image.includes("-mano") ? "reveal popout" : "reveal"}>
-    <img src={image} alt={alt} width="800" height="1000" loading={loading} decoding="async" />
+<a class={formato === 'alargada' ? 'card tall' : 'card'} data-cat={categoria} href={`/${lang}/obra/${slug}/`}>
+  <div class={image.includes("-mano") ? "reveal popout" : ajuste === "entera" ? "reveal sinfondo" : "reveal"}>
+    <img src={image} alt={alt} width="800" height="1000" loading={loading} decoding="async" style={[ajuste === 'entera' ? 'object-fit:contain' : '', encuadre ? `object-position:${encuadre}` : ''].filter(Boolean).join(';') || undefined} />
   </div>
   <h3>
     {title}

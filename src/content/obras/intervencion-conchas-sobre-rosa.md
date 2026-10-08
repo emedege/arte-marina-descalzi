@@ -6,4 +6,6 @@ categoria: intervencion
 estado: no a la venta
 orden: 130
 
+formato: alargada
+ajuste: entera
 ---

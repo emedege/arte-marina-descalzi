@@ -20,6 +20,9 @@ const obras = defineCollection({
     serie: z.string().optional(),
     orden: z.number().default(0),
     portada: z.boolean().default(false),
+    formato: z.enum(['normal', 'alargada']).default('normal'),
+    ajuste: z.enum(['cubrir', 'entera']).default('cubrir'),
+    encuadre: z.string().optional(),
     placeholder: z.boolean().default(false),
   }),
 });
