@@ -329,4 +329,4 @@ p { margin: 0 0 1em; }
 .logo-draw.pintando:not(.pintado) .l-fin { visibility: hidden; }
 .logo-draw.pintado .l-fin { visibility: visible; }
 /* Quién soy: la firma grande, abajo a la derecha, siguiendo la arista inferior derecha de la foto */
-.about-photo .firma-foto { width: calc((100% - 1.4rem) * 0.5); left: calc(1.4rem + (100% - 1.4rem) * 0.75 + 1.6rem); top: calc((100% - 1.4rem) * 0.875 + 2.8rem); transform: translate(-50%, -50%) rotate(-30deg); }
+.about-photo .firma-foto { width: calc((100% - 1.4rem) * 0.5); left: calc(1.4rem + (100% - 1.4rem) * 0.75 + 1.6rem); top: calc((100% - 1.4rem) * 0.875 + 2.8rem); transform: translate(-50%, -50%) rotate(-25deg); }
