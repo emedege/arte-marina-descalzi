@@ -77,8 +77,12 @@ const jsonLd = {
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href={`/${lang}/`}>
-          <span class="brand-mark"><img src="/img/logo-mdg-barra.webp" alt="" width="102" height="240" /></span>
-          <span>Marina Descalzi</span>
+          <span class="brand-mark" aria-hidden="true">
+            <img class="bm-top" src="/img/logo-mdg-barra.webp" alt="" width="203" height="480" />
+            <img class="bm-bottom" src="/img/logo-mdg-claro.webp" alt="" width="203" height="480" />
+          </span>
+          <span class="brand-name">Marina Descalzi</span>
+          <canvas class="firma" aria-hidden="true"></canvas>
         </a>
         <button class="menu-btn" aria-expanded="false" aria-controls="nav" type="button">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
@@ -160,5 +164,6 @@ const jsonLd = {
         qs.forEach(function (q) { qo.observe(q); });
       } else { qs.forEach(function (q) { q.classList.add('in'); }); }
     </script>
+    <script is:inline src="/js/cabecera.js" defer></script>
   </body>
 </html>

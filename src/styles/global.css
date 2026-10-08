@@ -187,11 +187,8 @@ p { margin: 0 0 1em; }
 .quote.in p { color: var(--turquesa); }
 @media (prefers-reduced-motion: reduce) { .quote p { transition-duration: 0.4s; } }
 
-.brand-mark { display: grid; place-items: center; flex: none; }
-.brand-mark img { height: 2.8rem; width: auto; }
 @media (max-width: 420px) {
   .brand { font-size: 0.95rem; letter-spacing: 0.08em; gap: 0.5rem; }
-  .brand-mark img { height: 2.3rem; }
 }
 
 .about p { text-transform: none; letter-spacing: 0.02em; font-size: 1.1rem; max-width: 36rem; }
@@ -273,3 +270,15 @@ p { margin: 0 0 1em; }
 }
 .card.tall .reveal { aspect-ratio: auto; }
 .card.tall .reveal img { height: auto; }
+
+/* Cabecera: logo grande que sale de la barra; al bajar se va y aparece la firma */
+.site-header { --lh: 6.6rem; --corte: 3.85rem; }
+@media (max-width: 860px) { .site-header { --lh: 5.6rem; --corte: 3.75rem; } }
+.brand-mark { position: relative; flex: none; display: block; width: calc(var(--lh) * 0.4237); height: 4rem; transition: width 0.5s ease, margin 0.5s ease, opacity 0.4s ease, transform 0.5s ease; }
+.brand-mark img { position: absolute; left: 0; top: 0.15rem; height: var(--lh); width: auto; max-width: none; pointer-events: none; }
+.brand-mark .bm-top { clip-path: inset(0 0 calc(100% - var(--corte)) 0); }
+.brand-mark .bm-bottom { clip-path: inset(var(--corte) 0 0 0); }
+.firma { flex: none; width: 0; height: 2.4rem; opacity: 0; transition: width 0.5s ease, opacity 0.3s ease; aspect-ratio: 1230 / 540; }
+.site-header.compacto .brand-mark { width: 0; margin-right: -0.7rem; opacity: 0; transform: translateY(-0.8rem); }
+.site-header.compacto .firma { width: 5.5rem; opacity: 1; }
+@media (max-width: 860px) { .brand { gap: 0.5rem; } .site-header.compacto .brand-mark { margin-right: -0.5rem; } .site-header.compacto .firma { width: 4.4rem; height: 1.93rem; } }
