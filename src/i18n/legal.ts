@@ -51,8 +51,9 @@ export const textos: Record<string, Seccion[]> = {
     { h: 'Qué son las cookies', p: [
       'Las cookies son pequeños archivos que un sitio web guarda en tu dispositivo. Sirven, por ejemplo, para recordar preferencias o medir visitas.'] },
     { h: 'Qué usamos en esta web', p: [
-      'Esta web no utiliza cookies de publicidad, de seguimiento ni de análisis. Solo puede usar almacenamiento técnico imprescindible para funcionar (por ejemplo, recordar una preferencia de visualización), que no requiere consentimiento.',
-      'Si en el futuro se añaden herramientas de analítica o contenido de terceros, se actualizará esta política y se pedirá tu consentimiento antes de activarlas.'] },
+      'Esta web no utiliza cookies de publicidad ni de seguimiento. Solo puede usar almacenamiento técnico imprescindible para funcionar (por ejemplo, recordar una preferencia de visualización), que no requiere consentimiento.',
+      'Para conocer de forma agregada cómo se usa la web (páginas vistas, rendimiento) utilizamos Cloudflare Web Analytics, una herramienta centrada en la privacidad que no usa cookies, no almacena datos en tu dispositivo, no te identifica ni te sigue entre sitios.',
+      'Si en el futuro se añaden otras herramientas de analítica o contenido de terceros, se actualizará esta política y se pedirá tu consentimiento antes de activarlas.'] },
     { h: 'Cómo gestionarlas', p: [
       'Puedes borrar o bloquear las cookies desde la configuración de tu navegador. Hacerlo puede afectar al funcionamiento de algunas webs.'] },
     { h: 'Contacto', p: [`Para cualquier duda: ${mail}.`] },
