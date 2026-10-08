@@ -379,3 +379,11 @@ p { margin: 0 0 1em; }
 /* WhatsApp: turquesa medio */
 .wa-float { background: #6fb899; color: #123a2e; }
 .wa-float:hover { background: #58a585; color: #0e2e24; }
+
+/* Móvil: pie de página más pequeño */
+@media (max-width: 600px) {
+  .site-footer { padding-block: 1.5rem; font-size: 0.65rem; }
+  .site-footer .links { gap: 0.2rem 1rem; margin-bottom: 0.7rem; }
+  .site-footer .links a { font-size: 0.68rem; letter-spacing: 0.06em; }
+  .site-footer .legal, .site-footer small, .site-footer p { font-size: 0.6rem; letter-spacing: 0.04em; line-height: 1.5; margin: 0; }
+}
