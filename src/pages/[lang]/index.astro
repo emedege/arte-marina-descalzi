@@ -85,10 +85,10 @@ const tiles = [
         txt.split(' ').forEach(function (word, k) {
           var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
           word.split('').forEach(function (ch) {
-            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; var slow = slowFrom != null && pos >= slowFrom; if (slow && pos === slowFrom) d += 700; d += slow ? 170 : 55; if (slow) c.setAttribute('data-slow', ''); c.style.setProperty('--d', d + 'ms'); c.style.setProperty('--t', slow ? '0.9s' : '0.35s'); pos++; i++; w.appendChild(c);
+            var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; var slow = slowFrom != null && pos >= slowFrom; if (slow && pos === slowFrom) d += 700; d += slow ? 150 : 38; if (slow) c.setAttribute('data-slow', ''); c.style.setProperty('--d', d + 'ms'); c.style.setProperty('--t', slow ? '0.9s' : '0.35s'); pos++; i++; w.appendChild(c);
           });
           el.appendChild(w);
-          if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); pos++; d += (slowFrom != null && pos > slowFrom) ? 170 : 55; }
+          if (k < txt.split(' ').length - 1) { el.appendChild(document.createTextNode(' ')); pos++; d += (slowFrom != null && pos > slowFrom) ? 150 : 38; }
         });
         el.classList.add('tipea');
         return function () {
@@ -97,7 +97,7 @@ const tiles = [
         };
       }
       var tag = document.querySelector('.intro h1');
-      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 2900, cut > 0 ? cut : null); startTag(); }
+      if (tag) { var cut = tag.textContent.indexOf('. ') + 2; var startTag = tipea(tag, 1300, cut > 0 ? cut : null); startTag(); }
       var q = document.querySelector('.quote p');
       if (q) {
         var startQ = tipea(q, 0);

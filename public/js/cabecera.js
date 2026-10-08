@@ -11,7 +11,8 @@
     if (cv._raf) cancelAnimationFrame(cv._raf);
     cv.width = W; cv.height = H;
     var ctx = cv.getContext('2d'), out = ctx.createImageData(W, H), od = out.data, i;
-    for (i = 0; i < W * H; i++) { od[i * 4] = COL[0]; od[i * 4 + 1] = COL[1]; od[i * 4 + 2] = COL[2]; }
+    var col = cv.getAttribute('data-color') ? cv.getAttribute('data-color').split(',').map(Number) : COL;
+    for (i = 0; i < W * H; i++) { od[i * 4] = col[0]; od[i * 4 + 1] = col[1]; od[i * 4 + 2] = col[2]; }
     var t0 = null, SOFT = 0.08;
     function frame(now) {
       if (t0 === null) t0 = now;
