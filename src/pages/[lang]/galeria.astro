@@ -35,9 +35,11 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
               {list.map((i) =>
                 i.data.video ? (
                   <figure class="video-card">
-                    <video controls playsinline preload="metadata" poster={i.data.poster} loop muted>
-                      <source src={i.data.video} type="video/mp4" />
-                    </video>
+                    <div class="video-hex" role="button" tabindex="0" aria-label={tr.home.pause + ' / ' + tr.home.play}>
+                      <video playsinline preload="metadata" poster={i.data.poster} loop muted>
+                        <source src={i.data.video} type="video/mp4" />
+                      </video>
+                    </div>
                     {titleOf(i.data) && <figcaption>{titleOf(i.data)}</figcaption>}
                   </figure>
                 ) : (
@@ -55,4 +57,24 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
       );
     })}
   </div>
+  <script is:inline>
+    (function () {
+      var boxes = document.querySelectorAll('.video-hex');
+      var toggle = function (b) { var v = b.querySelector('video'); b.dataset.manual = '1'; if (v.paused) v.play().catch(function () {}); else v.pause(); };
+      boxes.forEach(function (b) {
+        b.addEventListener('click', function () { toggle(b); });
+        b.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(b); } });
+      });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            var v = e.target.querySelector('video');
+            if (e.isIntersecting) { if (!e.target.dataset.manual) v.play().catch(function () {}); }
+            else v.pause();
+          });
+        }, { threshold: 0.4 });
+        boxes.forEach(function (b) { io.observe(b); });
+      }
+    })();
+  </script>
 </Base>

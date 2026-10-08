@@ -296,3 +296,8 @@ p { margin: 0 0 1em; }
 
 .titulo-firma + p, .titulo-firma + nav { margin-top: 0.8rem; }
 .about-photo .firma-foto { position: absolute; z-index: 3; width: calc((100% - 1.4rem) * 0.55); left: calc(1.4rem + (100% - 1.4rem) * 0.75 + 1.9rem); top: calc((100% - 1.4rem) * 0.125 - 3.3rem); transform: translate(-50%, -50%) rotate(30deg); pointer-events: none; }
+
+/* Vídeos de la galería en forma de hexágono */
+.video-hex { position: relative; aspect-ratio: 1 / 1.1547; clip-path: var(--forma); cursor: pointer; background: var(--turquesa-suave); }
+.video-hex video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-hex:focus-visible { outline: 2px solid var(--turquesa); outline-offset: -4px; }
