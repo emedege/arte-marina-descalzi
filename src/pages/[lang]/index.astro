@@ -22,7 +22,7 @@ const tiles = [
 <Base lang={lang} title="Marina Descalzi" path="">
   <section class="intro">
     <div class="wrap">
-      <span class="logo-mark logo-draw" role="img" aria-label="Marina Descalzi"><img class="l-teal" src="/img/logo-mdg-teal.webp" alt="" width="322" height="400" decoding="async" /><img class="l-rosa" src="/img/logo-mdg-rosa.webp" alt="" width="322" height="400" decoding="async" /></span>
+      <span class="logo-mark logo-draw" role="img" aria-label="Marina Descalzi"><img class="l-m" src="/img/logo-mdg-m.webp" alt="" width="322" height="400" decoding="async" /><img class="l-d" src="/img/logo-mdg-d.webp" alt="" width="322" height="400" decoding="async" /><img class="l-g" src="/img/logo-mdg-g.webp" alt="" width="322" height="400" decoding="async" /></span>
       <h1>{tr.home.tagline}</h1>
       <p class="sub">{tr.home.sub}</p>
       <a class="btn solid" href={`/${lang}/tienda/`}>{tr.home.cta}</a>
@@ -92,11 +92,11 @@ const tiles = [
         el.classList.add('tipea');
         return function () {
           setTimeout(function () { el.classList.add('go'); }, delay || 0);
-          if (slowFrom != null) setTimeout(function () { el.classList.add('vela'); }, (delay || 0) + d + 1500);
+          if (slowFrom != null) setTimeout(function () { el.classList.add('vela'); }, (delay || 0) + d + 400);
         };
       }
       var tag = document.querySelector('.intro h1');
-      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 2200, cut > 0 ? cut : null); startTag(); }
+      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 3000, cut > 0 ? cut : null); startTag(); }
       var q = document.querySelector('.quote p');
       if (q) {
         var startQ = tipea(q, 0);

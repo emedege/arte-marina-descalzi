@@ -178,7 +178,7 @@ p { margin: 0 0 1em; }
 .about-photo::after { content: ''; position: absolute; left: 0; top: 14%; width: 22%; aspect-ratio: 1 / 1.1547; background: var(--turquesa-suave); clip-path: var(--forma); z-index: 2; opacity: 0.9; }
 @media (min-width: 800px) { .about-photo { position: sticky; top: 6rem; } }
 
-.logo-mark { height: clamp(6.5rem, 15vw, 10.5rem); width: auto; }
+.logo-mark { height: clamp(8rem, 18vw, 13rem); width: auto; }
 
 /* Cita grande: pasa de gris a color al aparecer */
 .quote-band { padding-block: clamp(3rem, 9vw, 7rem); text-align: center; background: var(--rosa-suave); }
@@ -230,14 +230,18 @@ p { margin: 0 0 1em; }
 /* Velo que se levanta al bajar la página (portada) */
 .triptych.penta .reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(248, 244, 239, 0.92); opacity: var(--veil, 0); backdrop-filter: blur(calc(var(--veil, 0) * 8px)); -webkit-backdrop-filter: blur(calc(var(--veil, 0) * 8px)); }
 
-/* El logo se pinta trazo a trazo */
-@keyframes pincel { from { mask-position: 0 100%; -webkit-mask-position: 0 100%; } to { mask-position: 0 0; -webkit-mask-position: 0 0; } }
+/* El logo se pinta con pincel: primero la M, luego la D y luego la G */
+@keyframes pincel-m { from { clip-path: inset(0 0 93% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pincel-d { from { clip-path: inset(0 0 66% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pincel-g { from { clip-path: inset(0 0 42% 0); } to { clip-path: inset(0 0 0 0); } }
 .logo-draw { display: inline-block; position: relative; aspect-ratio: 322 / 400; }
-.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 46%, transparent 54%); mask-image: linear-gradient(to bottom, #000 46%, transparent 54%); -webkit-mask-size: 100% 250%; mask-size: 100% 250%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; animation: pincel 3.2s linear both; }
-.logo-draw .l-rosa { animation-delay: 0.15s; }
+.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; clip-path: inset(0 0 100% 0); animation-fill-mode: both; animation-timing-function: ease-in-out; }
+.logo-draw .l-m { animation-name: pincel-m; animation-duration: 1.3s; }
+.logo-draw .l-d { animation-name: pincel-d; animation-duration: 1.2s; animation-delay: 1.3s; }
+.logo-draw .l-g { animation-name: pincel-g; animation-duration: 1.5s; animation-delay: 2.5s; }
 
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
 .tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
 .tipea.go .c { opacity: 1; }
-.tipea.go.vela .c[data-slow] { opacity: 0.2; transition: opacity 3s ease; transition-delay: 0ms; }
+.tipea.go.vela .c[data-slow] { opacity: 0.15; transition: opacity 1.2s ease; transition-delay: 0ms; }
