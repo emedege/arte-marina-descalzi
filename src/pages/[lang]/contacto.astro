@@ -15,11 +15,13 @@ const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent
     <h1>{tr.pages.contactTitle}</h1>
     <p>{tr.pages.contactIntro}</p>
   </div>
-  <div class="wrap section">
+  <div class="wrap section contact-grid">
     <div class="actions" style="margin-top:0">
       <a class="btn solid" href={`https://wa.me/${WHATSAPP}`} rel="noopener">{tr.pages.whatsapp}</a>
       <a class="btn" href={wa(tr.pages.dossierMsg)} rel="noopener">{tr.pages.dossier}</a>
       <a class="btn" href={INSTAGRAM} rel="me noopener">{tr.pages.instagram}</a>
     </div>
+    <span class="logo-draw logo-contacto" data-al-ver role="img" aria-label="Marina Descalzi"><img class="l-fin" src="/img/logo-mdg-limpio.webp" alt="" width="322" height="400" decoding="async" /><canvas class="l-lienzo" width="322" height="400" aria-hidden="true"></canvas></span>
   </div>
+  <script is:inline src="/js/logo-pincel.js"></script>
 </Base>

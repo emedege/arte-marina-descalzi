@@ -249,3 +249,9 @@ p { margin: 0 0 1em; }
 .reveal.popout { overflow: visible; background: none; }
 .card .reveal.popout, .work .reveal.popout { aspect-ratio: auto; }
 .reveal.popout img { height: auto; object-fit: contain; }
+
+/* Contacto: el logo a la derecha, más grande que el de la portada */
+.contact-grid { display: grid; gap: 2rem; align-items: center; }
+.contact-grid .actions { align-self: start; }
+.logo-contacto { height: clamp(14rem, 32vw, 24rem); width: auto; justify-self: center; }
+@media (min-width: 800px) { .contact-grid { grid-template-columns: minmax(0, 1fr) auto; } .logo-contacto { justify-self: end; margin-right: clamp(0rem, 4vw, 4rem); } }
