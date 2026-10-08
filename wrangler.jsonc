@@ -1,6 +1,10 @@
 {
   "name": "marina-descalzi",
   "main": "worker.js",
+  "routes": [
+    { "pattern": "marinadescalzi.es", "custom_domain": true },
+    { "pattern": "www.marinadescalzi.es", "custom_domain": true }
+  ],
   "workers_dev": true,
   "preview_urls": true,
   "vars": { "DOMINIO_ACTIVO": "no" },
