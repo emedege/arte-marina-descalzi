@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import { locales, t, type Lang } from '../../../i18n/ui';
+import { textos, nota, TITULAR } from '../../../i18n/legal';
 
 export function getStaticPaths() {
   const docs = ['aviso-legal', 'privacidad', 'cookies', 'condiciones-de-venta'];
@@ -15,13 +16,21 @@ const titles: Record<string, string> = {
   cookies: tr.footer.cookies,
   'condiciones-de-venta': tr.footer.terms,
 };
+const secciones = textos[doc] ?? [];
 ---
 
-<Base lang={lang} title={titles[doc]} path={`legal/${doc}/`} noindex>
+<Base lang={lang} title={titles[doc]} path={`legal/${doc}/`}>
   <div class="wrap page-head">
     <h1>{titles[doc]}</h1>
+    {nota[lang] && <p class="note">{nota[lang]}</p>}
   </div>
-  <div class="wrap section">
-    <p>Texto legal pendiente de redactar y revisar antes de abrir la tienda.</p>
+  <div class="wrap section legal">
+    {secciones.map((s) => (
+      <section>
+        <h2>{s.h}</h2>
+        {s.p.map((p) => <p set:html={p} />)}
+      </section>
+    ))}
+    <p class="note">Última actualización: {TITULAR.actualizado}.</p>
   </div>
 </Base>

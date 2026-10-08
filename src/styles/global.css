@@ -311,3 +311,10 @@ p { margin: 0 0 1em; }
 .about p.about-name { text-transform: none; display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 1rem; margin-bottom: 0.6rem; font-size: 1.15rem; }
 .about p.about-name strong { font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #1e5c48; }
 .about p.about-name .firma-nombre { width: 6.5rem; flex: none; }
+
+/* Páginas legales */
+.legal { padding-top: 0; }
+.legal > section, .legal > p { max-width: 46rem; }
+.legal h2 { font-size: 1.2rem; margin: 2rem 0 0.5rem; }
+.legal p { text-transform: none; letter-spacing: 0.01em; line-height: 1.7; }
+.legal a { color: var(--turquesa); }
