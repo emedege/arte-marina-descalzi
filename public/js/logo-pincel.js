@@ -16,7 +16,7 @@
       for (var i = 0; i < W * H; i++) od[i * 4 + 3] = 0;
       ctx.putImageData(out, 0, 0);
       box.classList.add('pintando');
-      var DUR = 4600, SOFT = 0.035;
+      var DUR = 2800, SOFT = 0.035;
       function start() {
         var t0 = null;
         function frame(now) {
