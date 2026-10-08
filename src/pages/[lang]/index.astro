@@ -22,7 +22,7 @@ const tiles = [
 <Base lang={lang} title="Marina Descalzi" path="">
   <section class="intro">
     <div class="wrap">
-      <span class="logo-mark logo-draw" role="img" aria-label="Marina Descalzi"><img class="l-m" src="/img/logo-mdg-m.webp" alt="" width="322" height="400" decoding="async" /><img class="l-d" src="/img/logo-mdg-d.webp" alt="" width="322" height="400" decoding="async" /><img class="l-g" src="/img/logo-mdg-g.webp" alt="" width="322" height="400" decoding="async" /></span>
+      <span class="logo-mark logo-draw" role="img" aria-label="Marina Descalzi"><img class="l-fin" src="/img/logo-mdg.webp" alt="" width="322" height="400" decoding="async" /><canvas class="l-lienzo" width="322" height="400" aria-hidden="true"></canvas></span>
       <h1>{tr.home.tagline}</h1>
       <p class="sub">{tr.home.sub}</p>
       <a class="btn solid" href={`/${lang}/tienda/`}>{tr.home.cta}</a>
@@ -75,6 +75,38 @@ const tiles = [
 
   <script is:inline>
     (function () {
+      // El logo se pinta siguiendo los trazos: primero la M, luego la D y luego la G
+      (function () {
+        var box = document.querySelector('.logo-draw');
+        if (!box) return;
+        var cv = box.querySelector('.l-lienzo'), fin = box.querySelector('.l-fin');
+        var load = function (src) { return new Promise(function (ok, ko) { var im = new Image(); im.onload = function () { ok(im); }; im.onerror = ko; im.src = src; }); };
+        Promise.all([load('/img/logo-mdg.webp'), load('/img/logo-mdg-tiempo.png')]).then(function (r) {
+          var W = cv.width, H = cv.height, ctx = cv.getContext('2d');
+          var grab = function (im) { var c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d'); x.drawImage(im, 0, 0, W, H); return x.getImageData(0, 0, W, H).data; };
+          var src = grab(r[0]), tm = grab(r[1]);
+          var out = ctx.createImageData(W, H), od = out.data;
+          od.set(src);
+          for (var i = 0; i < W * H; i++) od[i * 4 + 3] = 0;
+          ctx.putImageData(out, 0, 0);
+          box.classList.add('pintando');
+          var DUR = 4600, SOFT = 0.035, t0 = null;
+          function frame(now) {
+            if (t0 === null) t0 = now;
+            var p = Math.min(1, (now - t0) / DUR);
+            var edge = p * (1 + SOFT);
+            for (var k = 0; k < W * H; k++) {
+              var tt = tm[k * 4] / 254;
+              var a = tm[k * 4] === 255 ? 0 : Math.min(1, Math.max(0, (edge - tt) / SOFT));
+              od[k * 4 + 3] = src[k * 4 + 3] * a;
+            }
+            ctx.putImageData(out, 0, 0);
+            if (p < 1) requestAnimationFrame(frame);
+            else { box.classList.add('pintado'); }
+          }
+          requestAnimationFrame(frame);
+        }).catch(function () {});
+      })();
       // Frases letra a letra
       function tipea(el, delay, slowFrom) {
         var txt = el.textContent.trim();
@@ -96,7 +128,7 @@ const tiles = [
         };
       }
       var tag = document.querySelector('.intro h1');
-      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 3000, cut > 0 ? cut : null); startTag(); }
+      if (tag) { var cut = tag.textContent.indexOf('Se '); var startTag = tipea(tag, 4300, cut > 0 ? cut : null); startTag(); }
       var q = document.querySelector('.quote p');
       if (q) {
         var startQ = tipea(q, 0);

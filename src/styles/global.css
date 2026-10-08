@@ -230,15 +230,14 @@ p { margin: 0 0 1em; }
 /* Velo que se levanta al bajar la página (portada) */
 .triptych.penta .reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(248, 244, 239, 0.92); opacity: var(--veil, 0); backdrop-filter: blur(calc(var(--veil, 0) * 8px)); -webkit-backdrop-filter: blur(calc(var(--veil, 0) * 8px)); }
 
-/* El logo se pinta con pincel: primero la M, luego la D y luego la G */
-@keyframes pincel-m { from { clip-path: inset(0 0 93% 0); } to { clip-path: inset(0 0 0 0); } }
-@keyframes pincel-d { from { clip-path: inset(0 0 66% 0); } to { clip-path: inset(0 0 0 0); } }
-@keyframes pincel-g { from { clip-path: inset(0 0 42% 0); } to { clip-path: inset(0 0 0 0); } }
+/* El logo se pinta siguiendo los trazos (lienzo); sin JS se ve el logo normal */
 .logo-draw { display: inline-block; position: relative; aspect-ratio: 322 / 400; }
-.logo-draw img { position: absolute; inset: 0; width: 100%; height: 100%; clip-path: inset(0 0 100% 0); animation-fill-mode: both; animation-timing-function: ease-in-out; }
-.logo-draw .l-m { animation-name: pincel-m; animation-duration: 1.3s; }
-.logo-draw .l-d { animation-name: pincel-d; animation-duration: 1.2s; animation-delay: 1.3s; }
-.logo-draw .l-g { animation-name: pincel-g; animation-duration: 1.5s; animation-delay: 2.5s; }
+.logo-draw img, .logo-draw canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.logo-draw .l-lienzo { display: none; }
+.logo-draw.pintando .l-lienzo { display: block; }
+.logo-draw.pintando .l-fin { visibility: hidden; }
+.logo-draw.pintado .l-lienzo { display: none; }
+.logo-draw.pintado .l-fin { visibility: visible; }
 
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
