@@ -231,7 +231,7 @@ p { margin: 0 0 1em; }
 .triptych.penta .reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(248, 244, 239, 0.92); opacity: var(--veil, 0); backdrop-filter: blur(calc(var(--veil, 0) * 8px)); -webkit-backdrop-filter: blur(calc(var(--veil, 0) * 8px)); }
 
 /* El logo se pinta siguiendo los trazos (lienzo); sin JS se ve el logo normal */
-.logo-draw { display: inline-block; position: relative; aspect-ratio: 322 / 400; }
+.logo-draw { display: inline-block; position: relative; aspect-ratio: 400 / 944; }
 .logo-draw img, .logo-draw canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .logo-draw .l-lienzo { display: none; }
 .logo-draw.pintando .l-lienzo { display: block; }

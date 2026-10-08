@@ -3,13 +3,14 @@
   var boxes = document.querySelectorAll('.logo-draw');
   if (!boxes.length) return;
   var load = function (src) { return new Promise(function (ok, ko) { var im = new Image(); im.onload = function () { ok(im); }; im.onerror = ko; im.src = src; }); };
-  Promise.all([load('/img/logo-mdg-limpio.webp'), load('/img/logo-mdg-tiempo.png')]).then(function (r) {
-    var W = 322, H = 400;
+  Promise.all([load('/img/logo-mdg-anim.webp'), load('/img/logo-mdg-tiempo.png')]).then(function (r) {
+    var W = r[0].naturalWidth, H = r[0].naturalHeight;
     var grab = function (im) { var c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d'); x.drawImage(im, 0, 0, W, H); return x.getImageData(0, 0, W, H).data; };
     var src = grab(r[0]), tm = grab(r[1]);
     boxes.forEach(function (box) {
       var cv = box.querySelector('.l-lienzo');
       if (!cv) return;
+      cv.width = W; cv.height = H;
       var ctx = cv.getContext('2d');
       var out = ctx.createImageData(W, H), od = out.data;
       od.set(src);

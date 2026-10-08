@@ -10,7 +10,7 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 const names = tr.pages.galSections as Record<string, string>;
 const items = (await getCollection('galeria')).sort((a, b) => a.data.orden - b.data.orden);
-const order = ['proceso', 'material', 'inspiracion'] as const;
+const order = ['proceso', 'material', 'inspiracion', 'movimiento'] as const;
 const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_en : lang === 'it' ? d.title_it : undefined) ?? d.title;
 ---
 

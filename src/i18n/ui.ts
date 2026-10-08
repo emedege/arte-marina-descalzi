@@ -23,8 +23,8 @@ export const ui = {
     pages: {
       shopTitle: 'Obra disponible', shopIntro: 'Piezas únicas. Envío a Península y Baleares incluido en el precio.',
       portTitle: 'Portfolio', portIntro: 'Obra realizada.',
-      galTitle: 'Galería', galIntro: 'Procesos, materiales e inspiración.',
-      shopEmpty: 'Muy pronto, nuevas piezas. Escríbeme por WhatsApp si quieres saber qué hay disponible.', galEmpty: 'Muy pronto.', galSections: { proceso: 'Procesos', material: 'Materiales', inspiracion: 'Inspiración' }, galSectionsLabel: 'Secciones de la galería', aboutAlt: 'Marina Descalzi en su taller',
+      galTitle: 'Galería', galIntro: 'Procesos, materiales, inspiración y arte en movimiento.',
+      shopEmpty: 'Muy pronto, nuevas piezas. Escríbeme por WhatsApp si quieres saber qué hay disponible.', galEmpty: 'Muy pronto.', galSections: { proceso: 'Procesos', material: 'Materiales', inspiracion: 'Inspiración', movimiento: 'Arte en movimiento' }, galSectionsLabel: 'Secciones de la galería', aboutAlt: 'Marina Descalzi en su taller',
       aboutTitle: 'Quién soy', aboutText: ["soy Marina Descalzi Guercio (Madrid, 1990), artista plástica de raíces argentinas. me apasiona la naturaleza, sus texturas y colores, y encuentro en la fotografía y la poesía visual una forma de mirar y de acercarme a lo cotidiano. en mi obra, la identidad femenina aparece de manera figurativa o abstracta, como presencia, huella o sugerencia.",
         "estoy vinculada a la educación artística y a la joyería de autor, y entiendo la creación como un espacio de exploración donde la acción y el proceso tienen un valor propio. mi interés por lo artesanal y lo meditativo se expresa en la atención al gesto, a la materia y al tiempo que requiere cada pieza.",
         "mis pinturas, de intenso color, suelen quedar cubiertas por una especie de velo que las oculta parcialmente, dejando zonas donde el color emerge con fuerza. ese juego entre lo visible y lo velado reivindica su presencia en una época que parece diluirse entre blancos, negros y grises. bajo el velo, el color permanece, encuentra sus resquicios y se hace visible."],
@@ -61,8 +61,8 @@ export const ui = {
     pages: {
       shopTitle: 'Available work', shopIntro: 'Unique pieces. Shipping to mainland Spain and the Balearic Islands included in the price.',
       portTitle: 'Portfolio', portIntro: 'Finished work.',
-      galTitle: 'Gallery', galIntro: 'Processes, materials and inspiration.',
-      shopEmpty: 'New pieces very soon. Message me on WhatsApp to find out what is available.', galEmpty: 'Coming soon.', galSections: { proceso: 'Processes', material: 'Materials', inspiracion: 'Inspiration' }, galSectionsLabel: 'Gallery sections', aboutAlt: 'Marina Descalzi in her studio',
+      galTitle: 'Gallery', galIntro: 'Processes, materials, inspiration and art in motion.',
+      shopEmpty: 'New pieces very soon. Message me on WhatsApp to find out what is available.', galEmpty: 'Coming soon.', galSections: { proceso: 'Processes', material: 'Materials', inspiracion: 'Inspiration', movimiento: 'Art in motion' }, galSectionsLabel: 'Gallery sections', aboutAlt: 'Marina Descalzi in her studio',
       aboutTitle: 'About', aboutText: ["i am Marina Descalzi Guercio (Madrid, 1990), a visual artist of argentine roots. i am passionate about nature, its textures and colours, and in photography and visual poetry i find a way of looking at, and drawing close to, the everyday. in my work, female identity appears figuratively or abstractly, as presence, trace or suggestion.",
         "i am linked to art education and to author jewellery, and i understand creation as a space of exploration where action and process have a value of their own. my interest in the handmade and the meditative is expressed in my attention to gesture, to matter and to the time each piece requires.",
         "my paintings, of intense colour, are often covered by a kind of veil that partly hides them, leaving areas where colour emerges with force. this play between the visible and the veiled reclaims colour's presence in an age that seems to dissolve into whites, blacks and greys. beneath the veil, colour remains, finds its cracks and becomes visible."],
@@ -99,8 +99,8 @@ export const ui = {
     pages: {
       shopTitle: 'Opere disponibili', shopIntro: 'Pezzi unici. Spedizione in Spagna continentale e Baleari inclusa nel prezzo.',
       portTitle: 'Portfolio', portIntro: 'Opere realizzate.',
-      galTitle: 'Galleria', galIntro: 'Processi, materiali e ispirazione.',
-      shopEmpty: 'Nuovi pezzi a breve. Scrivimi su WhatsApp per sapere cosa è disponibile.', galEmpty: 'Presto.', galSections: { proceso: 'Processi', material: 'Materiali', inspiracion: 'Ispirazione' }, galSectionsLabel: 'Sezioni della galleria', aboutAlt: 'Marina Descalzi nel suo studio',
+      galTitle: 'Galleria', galIntro: 'Processi, materiali, ispirazione e arte in movimento.',
+      shopEmpty: 'Nuovi pezzi a breve. Scrivimi su WhatsApp per sapere cosa è disponibile.', galEmpty: 'Presto.', galSections: { proceso: 'Processi', material: 'Materiali', inspiracion: 'Ispirazione', movimiento: 'Arte in movimento' }, galSectionsLabel: 'Sezioni della galleria', aboutAlt: 'Marina Descalzi nel suo studio',
       aboutTitle: 'Chi sono', aboutText: ["sono Marina Descalzi Guercio (Madrid, 1990), artista visiva di origini argentine. sono appassionata di natura, delle sue texture e dei suoi colori, e nella fotografia e nella poesia visiva trovo un modo di guardare e di avvicinarmi al quotidiano. nella mia opera, l'identità femminile compare in modo figurativo o astratto, come presenza, traccia o suggestione.",
         "sono legata all'educazione artistica e alla gioielleria d'autore, e intendo la creazione come uno spazio di esplorazione in cui l'azione e il processo hanno un valore proprio. il mio interesse per l'artigianale e il meditativo si esprime nell'attenzione al gesto, alla materia e al tempo che ogni pezzo richiede.",
         "i miei dipinti, dal colore intenso, restano spesso coperti da una sorta di velo che li nasconde in parte, lasciando zone in cui il colore emerge con forza. questo gioco tra il visibile e il velato rivendica la presenza del colore in un'epoca che sembra dissolversi tra bianchi, neri e grigi. sotto il velo, il colore permane, trova i suoi spiragli e si rende visibile."],

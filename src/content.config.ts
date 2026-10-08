@@ -33,7 +33,7 @@ const galeria = defineCollection({
     title: z.string(),
     title_en: z.string().optional(),
     title_it: z.string().optional(),
-    tipo: z.enum(['proceso', 'material', 'inspiracion']),
+    tipo: z.enum(['proceso', 'material', 'inspiracion', 'movimiento']),
     image: z.string().optional(),
     alt: z.string().optional(),
     video: z.string().optional(),
