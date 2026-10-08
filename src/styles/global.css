@@ -364,3 +364,14 @@ p { margin: 0 0 1em; }
   .intro .wrap { gap: 1.4rem; }
   .note { font-size: 0.68rem; }
 }
+
+/* Móvil: «Cartas desde el taller» mucho más discreto */
+@media (max-width: 600px) {
+  .newsletter { padding-block: 1.4rem; }
+  .newsletter .inner { gap: 0.7rem; }
+  .newsletter h2 { font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0; }
+  .newsletter p { font-size: 0.6rem; letter-spacing: 0.05em; }
+  .newsletter form { gap: 0.4rem; width: 100%; }
+  .newsletter input[type='email'] { font-size: 0.72rem; padding: 0.45rem 0.6rem; min-width: 0; flex: 1 1 8rem; }
+  .newsletter .btn { font-size: 0.65rem; padding: 0.5rem 0.9rem; letter-spacing: 0.05em; }
+}
