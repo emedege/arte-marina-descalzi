@@ -1,6 +1,8 @@
 {
   "name": "marina-descalzi",
   "main": "worker.js",
+  "workers_dev": true,
+  "preview_urls": true,
   "vars": { "DOMINIO_ACTIVO": "no" },
   "compatibility_date": "2026-10-06",
   "assets": {
