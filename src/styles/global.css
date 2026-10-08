@@ -330,3 +330,23 @@ p { margin: 0 0 1em; }
 .logo-draw.pintado .l-fin { visibility: visible; }
 /* Quién soy: la firma grande, abajo a la derecha, siguiendo la arista inferior derecha de la foto */
 .about-photo .firma-foto { width: calc((100% - 1.4rem) * 0.5); left: calc(1.4rem + (100% - 1.4rem) * 0.75 + 1.6rem); top: calc((100% - 1.4rem) * 0.875 + 2.8rem); transform: translate(-50%, -50%) rotate(-25deg); }
+
+/* Móvil: frase en una línea, tiles y cuadrículas más pequeños, como en el ordenador */
+@media (max-width: 600px) {
+  .intro h1 { white-space: nowrap; font-size: min(1.5rem, 4.3vw); }
+  .triptych { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 0.9rem; }
+  .triptych > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.45rem); }
+  .triptych h2 { font-size: 0.82rem; letter-spacing: 0.1em; margin-bottom: 0.05em; }
+  .triptych p { font-size: 0.7rem; letter-spacing: 0.04em; line-height: 1.35; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 0.8rem; }
+  .card h3 { font-size: 0.85rem; letter-spacing: 0.08em; margin-top: 0.5rem; }
+  .card .meta { font-size: 0.75rem; }
+  .card.tall { grid-row: span 2; display: block; align-self: start; }
+  .gal-section h2 { font-size: 1.2rem; }
+  .gal-item figcaption, .video-card figcaption { font-size: 0.75rem; }
+}
+.gal-item .reveal { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; background: rgba(28, 44, 38, 0.9); padding: 1rem; }
+.lightbox.abierta { display: flex; }
+.lightbox img { max-width: min(94vw, 70rem); max-height: 90vh; object-fit: contain; box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4); }
+.lightbox button { position: absolute; top: 0.8rem; right: 0.8rem; width: 2.8rem; height: 2.8rem; border: 0; border-radius: 50%; background: rgba(248, 244, 239, 0.92); color: var(--ink); font-size: 1.5rem; line-height: 1; cursor: pointer; }

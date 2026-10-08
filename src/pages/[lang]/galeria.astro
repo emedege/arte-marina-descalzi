@@ -44,7 +44,7 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
                   </figure>
                 ) : (
                   <figure class="gal-item">
-                    <div class="reveal">
+                    <div class="reveal" role="button" tabindex="0" aria-label="Ampliar">
                       <img src={i.data.image} alt={i.data.alt ?? ''} width="800" height="1000" loading="lazy" decoding="async" />
                     </div>
                     {titleOf(i.data) && <figcaption>{titleOf(i.data)}</figcaption>}
@@ -57,7 +57,19 @@ const titleOf = (d: (typeof items)[number]['data']) => (lang === 'en' ? d.title_
       );
     })}
   </div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada"><img alt="" /><button type="button" aria-label="Cerrar">×</button></div>
   <script is:inline>
+    (function () {
+      var lb = document.getElementById('lightbox'), lbi = lb.querySelector('img');
+      var abre = function (r) { var im = r.querySelector('img'); lbi.src = im.currentSrc || im.src; lbi.alt = im.alt || ''; lb.classList.add('abierta'); document.body.style.overflow = 'hidden'; lb.querySelector('button').focus(); };
+      var cierra = function () { lb.classList.remove('abierta'); document.body.style.overflow = ''; lbi.removeAttribute('src'); };
+      document.querySelectorAll('.gal-item .reveal').forEach(function (r) {
+        r.addEventListener('click', function () { abre(r); });
+        r.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abre(r); } });
+      });
+      lb.addEventListener('click', cierra);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cierra(); });
+    })();
     (function () {
       var boxes = document.querySelectorAll('.video-hex');
       var toggle = function (b) { var v = b.querySelector('video'); b.dataset.manual = '1'; if (v.paused) v.play().catch(function () {}); else v.pause(); };
