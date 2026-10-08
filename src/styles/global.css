@@ -244,3 +244,8 @@ p { margin: 0 0 1em; }
 .tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
 .tipea.go .c { opacity: 1; }
 .tipea.go.vela .c[data-slow] { opacity: 0.15; transition: opacity 1.2s ease; transition-delay: 0ms; }
+
+/* Obras con una mano que sale del recuadro */
+.reveal.popout { overflow: visible; background: none; }
+.card .reveal.popout, .work .reveal.popout { aspect-ratio: auto; }
+.reveal.popout img { height: auto; object-fit: contain; }

@@ -17,7 +17,7 @@ const tr = t(lang);
 ---
 
 <a class="card" data-cat={categoria} href={`/${lang}/obra/${slug}/`}>
-  <div class="reveal">
+  <div class={image.includes("-mano") ? "reveal popout" : "reveal"}>
     <img src={image} alt={alt} width="800" height="1000" loading={loading} decoding="async" />
   </div>
   <h3>

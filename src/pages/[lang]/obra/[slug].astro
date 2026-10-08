@@ -41,7 +41,7 @@ const jsonLd = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="wrap work">
-    <div class="reveal">
+    <div class={d.image.includes("-mano") ? "reveal popout" : "reveal"}>
       <img src={d.image} alt={d.alt} width="800" height="1000" decoding="async" fetchpriority="high" />
     </div>
     <div>
