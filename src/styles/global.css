@@ -265,3 +265,11 @@ p { margin: 0 0 1em; }
 }
 .reveal.sinfondo { background: none; }
 .card.tall .reveal.sinfondo img { object-position: 50% 0; }
+/* Alargadas: la imagen con su proporción real y el nombre justo debajo */
+@media (min-width: 600px) {
+  .card.tall { align-self: start; display: block; }
+  .card.tall .reveal { aspect-ratio: auto; min-height: 0; flex: none; }
+  .card.tall .reveal img { height: auto; }
+}
+.card.tall .reveal { aspect-ratio: auto; }
+.card.tall .reveal img { height: auto; }
