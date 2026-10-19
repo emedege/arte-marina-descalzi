@@ -243,7 +243,8 @@ p { margin: 0 0 1em; }
 
 /* Frases que aparecen letra a letra */
 .tipea .w { display: inline-block; white-space: nowrap; }
-.tipea .c { opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
+/* Cada letra en su propia capa: el fundido no se para aunque el móvil esté ocupado pintando el logo */
+.tipea .c { display: inline-block; white-space: pre; will-change: opacity; opacity: 0; transition: opacity var(--t, 0.35s) ease; transition-delay: var(--d, 0ms); }
 .tipea.go .c { opacity: 1; }
 .tipea.go.vela .c[data-slow] { opacity: 0.15; transition: opacity 1.2s ease; transition-delay: 0ms; }
 
