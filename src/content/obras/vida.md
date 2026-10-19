@@ -5,7 +5,7 @@ alt: "Pintura sobre fondo verde con formas de colores, círculos blancos y un re
 categoria: pintura
 estado: disponible
 medidas: "50 x 40 cm"
-precio: 500
+precio: 750
 tecnica: "Acrílico seco, spray y acrílico sobre lienzo"
 tecnica_en: "Dry acrylic, spray paint and acrylic on canvas"
 tecnica_it: "Acrilico secco, spray e acrilico su tela"
