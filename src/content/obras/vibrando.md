@@ -10,4 +10,5 @@ tecnica: "Acrílico sobre lienzo"
 tecnica_en: "Acrylic on canvas"
 tecnica_it: "Acrilico su tela"
 orden: 6
+formato: alargada
 ---
